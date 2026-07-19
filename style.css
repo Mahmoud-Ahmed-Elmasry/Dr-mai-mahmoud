@@ -1,0 +1,127 @@
+/* ==========================================================================
+   ملف التنسيق الكامل والخاص بموقع د. مي محمود عطية
+   تمت تهيئته ليدعم ألواناً هادئة ومريحة جداً للعين في الوضع الفاتح والداكن
+   ========================================================================== */
+
+/* إعدادات الخطوط الافتراضية للموقع */
+body {
+    font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+/* تأثيرات الانتقال السلس عند التبديل بين الأنماط */
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* تخصيص مظهر شريط التمرير (Scrollbar) ليناسب التصميم */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0f19;
+}
+html.light ::webkit-scrollbar-track {
+    background: #f4f6f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #14b8a6;
+}
+
+/* تأثيرات الظهور التدريجي للعناصر (Animations) */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* تأثير الحركة الخفيفة لزر الحجز الرئيسي */
+.animate-pulse-subtle {
+    animation: pulseSubtle 2s infinite;
+}
+
+@keyframes pulseSubtle {
+    0%, 100% { transform: scale(1); box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.2); }
+    50% { transform: scale(1.02); box-shadow: 0 10px 25px -3px rgba(20, 184, 166, 0.4); }
+}
+
+/* تأثير كارت العرض الخاص والمميز */
+.special-glow-card {
+    position: relative;
+    box-shadow: 0 0 25px -5px rgba(20, 184, 166, 0.15);
+}
+
+/* التناسق ومحاذاة النصوص بناءً على اتجاه اللغة */
+html[dir="rtl"] .content-align {
+    text-align: right;
+}
+html[dir="ltr"] .content-align {
+    text-align: left;
+}
+
+html[dir="rtl"] .border-r-4 {
+    border-right-width: 4px;
+    border-left-width: 0px;
+}
+html[dir="ltr"] .border-r-4 {
+    border-left-width: 4px;
+    border-right-width: 0px;
+}
+
+/* ==========================================================================
+   تخصيص الوضع الفاتح الهادئ والمريح جداً للعين (Light Mode)
+   تم استبدال اللون الأبيض الفاقع بدرجات كاشي دافئة ومطفية لمنع إجهاد البصر
+   ========================================================================== */
+html.light body {
+    background-color: #f4f6f9 !important; /* خلفية رمادية ناعمة مائلة للزرقة */
+    color: #2c3e50 !important; /* لون نص داكن مريح وقابل للقراءة */
+}
+
+/* شريط التنقل العلوي في الوضع الفاتح */
+html.light .nav-bar {
+    background-color: rgba(234, 240, 246, 0.9) !important;
+    border-color: #cbd5e1 !important;
+}
+
+/* الصناديق والبطاقات والأقسام داخل الموقع */
+html.light .card-box {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+    color: #334155 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* العناوين الرئيسية والفرعية الواضحة */
+html.light .heading-main {
+    color: #0f172a !important;
+}
+
+/* النصوص المساعدة والشروحات المطفية */
+html.light .text-muted {
+    color: #475569 !important;
+}
+
+/* التذييل السفلي للموقع (Footer) */
+html.light .footer-box {
+    background-color: #eaf0f6 !important;
+    border-color: #cbd5e1 !important;
+}
+
+/* أزرار الأسئلة الشائعة وتنسيق الأكورديون في الوضع الفاتح */
+html.light .faq-btn {
+    background-color: #eaf0f6 !important;
+    color: #0f172a !important;
+}
+
+html.light .faq-ans {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+}
