@@ -5,10 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page-title">منصة روح للروح مع د.مي محمود - للاستشارات النفسية والأسرية</title>
     
+    <!-- تحسينات محركات البحث (SEO) -->
+    <meta name="description" content="منصة روح للروح مع د. مي محمود - استشارات نفسية وأسرية متخصصة، جلسات علاج سلوكي معرفي (CBT) وجدلي (DBT)، وإرشاد أسري وزواجي في بيئة آمنة وبسرية مطلقة.">
+    <meta name="keywords" content="د مي محمود, روح للروح, استشارات نفسية, علاج نفسي, إرشاد أسري, CBT, DBT, استشارات أسرية, علاج معرفي سلوكي, دكتور نفسي أونلاين">
+    <meta name="author" content="د. مي محمود عطية">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="منصة روح للروح مع د.مي محمود - للاستشارات النفسية والأسرية">
+    <meta property="og:description" content="خطوتك الأولى نحو نفسٍ مطمئنة وحياة أسرية مستقرة. احجز جلستك الآن وتواصل مباشر عبر المنصات المعتمدة.">
+    <meta property="og:image" content="dr-mai.png">
+    
+    <!-- Twitter Cards -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="منصة روح للروح مع د.مي محمود">
+    <meta property="twitter:description" content="خطوتك الأولى نحو نفسٍ مطمئنة وحياة أسرية مستقرة.">
+    <meta property="twitter:image" content="dr-mai.png">
+
+    <!-- البيانات المنظمة (Schema.org) لتحسين ظهور Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "روح للروح - د. مي محمود",
+      "image": "dr-mai.png",
+      "description": "منصة للاستشارات النفسية والأسرية والعلاج المعرفي السلوكي والجدلي",
+      "medicalSpecialty": ["Psychiatric", "Counseling"],
+      "priceRange": "$$"
+    }
+    </script>
+
     <!-- أيقونة الموقع (Favicon) -->
-    <link rel="icon" type="image/jpeg" href="icon.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="icon.jpg">
-    <link rel="apple-touch-icon" href="icon.jpg">
+    <link rel="icon" type="image/jpeg" href="icon.png">
+    <link rel="shortcut icon" type="image/jpeg" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -37,8 +68,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center justify-between w-full sm:w-auto gap-4">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
-                    <!-- صورة اللوجو إيقونة icon.jpg -->
-                    <img src="icon.jpg" alt="روح للروح" class="w-10 h-10 object-cover rounded-full shadow-lg border border-amber-500/30">
+                    <img src="icon.png" alt="روح للروح" class="w-10 h-10 object-cover rounded-full shadow-lg border border-amber-500/30">
                     <span class="text-lg sm:text-xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent logo-gradient-text" id="logo-text" data-i18n="logo-text">روح للروح مع د.مي محمود</span>
                 </div>
                 <div class="flex items-center gap-2">
@@ -85,7 +115,7 @@
                     <div class="relative group">
                         <div class="absolute -inset-1.5 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
                         <div class="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-[#111827] dr-img-container border border-slate-800/80 rounded-full p-2 shadow-2xl card-box">
-                            <img src="dr-mai.jpg" alt="د. مي محمود عطية" class="w-full h-full object-cover rounded-full filter brightness-95">
+                            <img src="dr-mai.png" alt="د. مي محمود عطية" class="w-full h-full object-cover rounded-full filter brightness-95">
                         </div>
                     </div>
                 </div>
@@ -136,7 +166,7 @@
                     <h3 class="text-xl sm:text-2xl font-bold text-white heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="section-title">الخدمات الاستشارية والعلاجية المعتمدة</h3>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-brain"></i></div>
@@ -150,14 +180,6 @@
                             <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-people-roof"></i></div>
                             <h4 class="text-base font-bold text-white heading-main" data-i18n="service-2-title">الإرشاد الأسرى وتطوير العلاقات</h4>
                             <p class="text-xs text-slate-400 leading-relaxed text-muted" data-i18n="service-2-desc">دراسة وتحليل الخلافات الزوجية، بناء قنوات اتصال متطورة وفعالة داخل الأسرة، وتقديم الدعم والحلول لضمان بيئة أسرية مستقرة تماماً.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-child-reaching"></i></div>
-                            <h4 class="text-base font-bold text-white heading-main" data-i18n="service-3-title">تعديل سلوك الأطفال والمراهقين</h4>
-                            <p class="text-xs text-slate-400 leading-relaxed text-muted" data-i18n="service-3-desc">تقديم استشارات متخصصة للتعامل مع العناد، العنف، التأتأة، ومشاكل التحصيل الدراسي، وبناء بيئة تربوية إيجابية تدعم صحة الطفل النفسية.</p>
                         </div>
                     </div>
 
@@ -306,7 +328,7 @@
             <div class="pt-6 border-t border-slate-800/60 text-xs text-slate-400 text-right content-align space-y-3 text-muted reveal">
                 <div class="flex items-center gap-3"><i class="fa-solid fa-graduation-cap text-teal-400 text-sm flex-shrink-0 academic-icon"></i> <span data-i18n="cred-1">ماجستير ودكتوراه مهنية في العلاج النفسي والأسري المعتمد</span></div>
                 <div class="flex items-center gap-3"><i class="fa-solid fa-id-card-clip text-teal-400 text-sm flex-shrink-0 academic-icon"></i> <span data-i18n="cred-2">عضوية رسمية وموثقة بالبورد البريطاني للاستشارات والعلاج النفسي</span></div>
-                <div class="flex items-center gap-3"><i class="fa-solid fa-certificate text-teal-400 text-sm flex-shrink-0 academic-icon"></i> <span data-i18n="cred-3">حاصلة على برنامج تدريبي متقدم في التوجيه السلوكي من جامعة ستانفورد</span></div>
+                <div class="flex items-center gap-3"><i class="fa-solid fa-certificate text-teal-400 text-sm flex-shrink-0 academic-icon"></i> <span data-i18n="cred-3">حاصلة على برنامج تدريبي متقدم في التوجيه السلوكي والمعرفي السلوكي (CBT) والجدلي (DBT) والإكلينيكي من جامعة ستانفورد</span></div>
             </div>
         </div>
 
