@@ -163,6 +163,19 @@ function switchTab(tabId) {
     document.getElementById('tab-home').classList.add('hidden');
     document.getElementById('tab-share').classList.add('hidden');
     document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+    const btnHome = document.getElementById('btn-home');
+    const btnShare = document.getElementById('btn-share');
+
+    if (btnHome && btnShare) {
+        if (tabId === 'home') {
+            btnHome.className = "px-4 py-2.5 rounded-xl transition cursor-pointer bg-teal-600 text-white font-semibold";
+            btnShare.className = "px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 tab-share-btn hover:bg-slate-800/60";
+        } else {
+            btnShare.className = "px-4 py-2.5 rounded-xl transition cursor-pointer bg-teal-600 text-white font-semibold";
+            btnHome.className = "px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 tab-share-btn hover:bg-slate-800/60";
+        }
+    }
 }
 
 function redirectToWhatsApp() {
