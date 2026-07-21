@@ -3,315 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة د. مي محمود عطية - للاستشارات النفسية والأسرية</title>
-    <!-- Tailwind CSS v4 -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Font Awesome الأيقونات -->
+    <title data-i18n="page-title">منصة روح للروح مع د.مي محمود - للاستشارات النفسية والأسرية</title>
+    
+    <!-- أيقونة الموقع (Favicon) -->
+    <link rel="icon" type="image/jpeg" href="icon.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="icon.jpg">
+    <link rel="apple-touch-icon" href="icon.jpg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- مكتبة الـ QR Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#0b0f19] text-slate-100 dark:bg-[#0b0f19] dark:text-slate-100 light:bg-[#f4f6f9] light:text-slate-800 min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white transition-colors duration-300">
+<body class="bg-[#0b0f19] text-slate-100 dark:bg-[#0b0f19] dark:text-slate-100 light-theme min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white transition-colors duration-300">
 
-    <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 z-50 bg-[#111827]/80 dark:bg-[#111827]/80 light:bg-[#eaf0f6]/90 backdrop-blur-lg border-b border-slate-800/60 light:border-slate-200 px-4 py-4 nav-bar">
+    <nav class="sticky top-0 z-50 bg-[#111827]/80 dark:bg-[#111827]/80 backdrop-blur-lg border-b border-slate-800/60 px-4 py-4 nav-bar">
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <!-- Logo & Controls -->
             <div class="flex items-center justify-between w-full sm:w-auto gap-4">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-400 flex items-center justify-center font-bold text-lg text-slate-900 shadow-lg">م</div>
-                    <span class="text-xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 dark:from-teal-400 dark:to-emerald-400 light:from-teal-700 light:to-emerald-700 bg-clip-text text-transparent" id="logo-text" data-i18n="logo-text">د. مي محمود عطيّة</span>
+                    <!-- صورة اللوجو إيقونة icon.jpg -->
+                    <img src="icon.jpg" alt="روح للروح" class="w-10 h-10 object-cover rounded-full shadow-lg border border-amber-500/30">
+                    <span class="text-lg sm:text-xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent logo-gradient-text" id="logo-text" data-i18n="logo-text">روح للروح مع د.مي محمود</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-800/50 dark:bg-slate-800/40 light:bg-slate-200 hover:bg-slate-700/60 light:hover:bg-slate-300 text-amber-400 light:text-amber-600 transition cursor-pointer border border-slate-700/40 light:border-slate-300" title="تبديل المظهر">
+                    <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-800/50 dark:bg-slate-800/40 theme-toggle-btn hover:bg-slate-700/60 text-amber-400 transition cursor-pointer border border-slate-700/40" title="تبديل المظهر">
                         <i class="fa-solid fa-moon dark:hidden"></i>
                         <i class="fa-solid fa-sun hidden dark:inline"></i>
                     </button>
-                    <button onclick="toggleLanguage()" class="px-3 py-2 text-xs font-bold rounded-xl bg-slate-800/50 light:bg-slate-200 hover:bg-slate-700/60 light:hover:bg-slate-300 text-teal-400 light:text-teal-700 transition cursor-pointer border border-slate-700/40 light:border-slate-300 flex items-center gap-1.5">
+                    <button onclick="toggleLanguage()" class="px-3 py-2 text-xs font-bold rounded-xl bg-slate-800/50 lang-toggle-btn hover:bg-slate-700/60 text-teal-400 transition cursor-pointer border border-slate-700/40 flex items-center gap-1.5">
                         <i class="fa-solid fa-globe"></i>
                         <span id="lang-btn-text">English</span>
                     </button>
                 </div>
             </div>
-            <!-- Tabs Menu -->
             <div class="flex items-center gap-2 text-xs sm:text-sm font-medium w-full sm:w-auto justify-center sm:justify-end">
                 <button onclick="switchTab('home')" id="btn-home" class="px-4 py-2.5 rounded-xl transition cursor-pointer bg-teal-600 text-white font-semibold" data-i18n="nav-home">الرئيسية</button>
-                <button onclick="switchTab('share')" id="btn-share" class="px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 light:text-slate-600 hover:bg-slate-800/60 light:hover:bg-slate-200" data-i18n="nav-share">شارك الموقع</button>
-                <button onclick="redirectToWhatsApp()" class="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 light:text-emerald-700 hover:bg-emerald-500 hover:text-slate-950 light:hover:text-white font-bold transition text-xs cursor-pointer">
+                <button onclick="switchTab('share')" id="btn-share" class="px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 tab-share-btn hover:bg-slate-800/60" data-i18n="nav-share">شارك الموقع</button>
+                <button onclick="redirectToWhatsApp()" class="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 whatsapp-nav-btn hover:bg-emerald-500 hover:text-slate-950 font-bold transition text-xs cursor-pointer">
                     <i class="fa-brands fa-whatsapp"></i> <span data-i18n="nav-book-btn">احجز جلستك الآن</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- MAIN CONTENT -->
     <main class="max-w-5xl mx-auto p-4 sm:p-6 flex-grow w-full flex flex-col justify-center">
-
-        <!-- ==================== TAB 1: HOME PAGE ==================== -->
         <div id="tab-home" class="space-y-14 fade-in pt-2">
-            
-            <!-- Hero Layout Section -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div class="md:col-span-7 space-y-6 text-right content-align order-2 md:order-1">
-                    <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-teal-500/10 text-teal-400 light:text-teal-700 text-xs font-semibold rounded-full border border-teal-500/20 reveal-item">
-                        <i class="fa-solid fa-user-shield"></i> <span data-i18n="hero-badge">مساحة علاجية خاصة واستشارات سرية تماماً</span>
+                    <span class="inline-flex items-center gap-2 px-3.5 py-2 bg-teal-500/10 text-teal-400 hero-badge-style text-xs sm:text-sm font-semibold rounded-full border border-teal-500/20 reveal">
+                        <i class="fa-solid fa-feather-pointed"></i> <span data-i18n="hero-slogan">كل خطوة نحو التعافي حياة.</span>
                     </span>
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white light:text-slate-900 heading-main leading-tight reveal-item" data-i18n="hero-title">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white heading-main-title leading-[1.4] sm:leading-[1.5] lg:leading-[1.5] reveal" data-i18n="hero-title">
                         خطوتك الأولى نحو<br>نفسٍ مطمئنة وحياة أسرية مستقرة
                     </h1>
-                    <p class="text-slate-400 light:text-slate-600 text-sm sm:text-base leading-relaxed text-muted max-w-xl reveal-item" data-i18n="hero-desc">
-                        مرحباً بك في مساحتك الآمنة للاستشارات والدعم المتخصص. نساعدك هنا عبر مناهج التحليل السلوكي المعرفي والإرشاد الأسري المعتمد لتجاوز التراكمات النفسية وبناء بيئة حياة مستقرة ومتوازنة.
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed text-muted max-w-xl reveal" data-i18n="hero-desc">
+                        مرحباً بك في مساحتك الآمنة للاستشارات والدعم المتخصص مع د. مي محمود عطية. نساعدك هنا عبر مناهج التحليل السلوكي المعرفي والإرشاد الأسري المعتمد لتجاوز التراكمات النفسية وبناء بيئة حياة مستقرة ومتوازنة.
                     </p>
-                    <div class="pt-2 reveal-item">
+                    <div class="pt-2 reveal">
                         <button onclick="redirectToWhatsApp()" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 font-bold rounded-xl hover:from-teal-400 hover:to-emerald-400 transition-all shadow-xl shadow-teal-500/10 text-sm cursor-pointer">
                             <i class="fa-brands fa-whatsapp ml-1"></i> <span data-i18n="nav-book-btn">احجز جلستك الآن</span>
                         </button>
                     </div>
                 </div>
-
-                <div class="md:col-span-5 flex justify-center reveal-item order-1 md:order-2">
+                <div class="md:col-span-5 flex justify-center reveal order-1 md:order-2">
                     <div class="relative group">
                         <div class="absolute -inset-1.5 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-                        <div class="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-[#111827] light:bg-[#eaf0f6] border border-slate-800/80 light:border-slate-300 rounded-full p-2 shadow-2xl card-box">
+                        <div class="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-[#111827] dr-img-container border border-slate-800/80 rounded-full p-2 shadow-2xl card-box">
                             <img src="dr-mai.jpg" alt="د. مي محمود عطية" class="w-full h-full object-cover rounded-full filter brightness-95">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- قسم البيدجات والشبكات -->
-            <div class="bg-[#111827]/40 light:bg-[#eaf0f6]/60 border border-slate-800/60 light:border-slate-300 rounded-2xl p-4 sm:p-6 card-box reveal-item flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-right">
+            <div class="bg-[#111827]/40 platforms-container border border-slate-800/60 rounded-2xl p-4 sm:p-6 card-box reveal flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-right">
                 <div class="space-y-1">
-                    <h4 class="text-sm sm:text-base font-bold text-white light:text-slate-900 heading-main flex items-center gap-2 justify-center md:justify-start">
+                    <h4 class="text-sm sm:text-base font-bold text-white heading-main flex items-center gap-2 justify-center md:justify-start">
                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                         <span data-i18n="presence-title">نحن متواجدون الآن للرد الفوري عبر المنصات التالية:</span>
                     </h4>
-                    <p class="text-xs text-slate-400 light:text-slate-600 text-muted" data-i18n="presence-desc">اضغط على أي منصة للتواصل المباشر مع الدكتورة أو متابعة المقالات.</p>
+                    <p class="text-xs text-slate-400 text-muted" data-i18n="presence-desc">اضغط على أي منصة للتواصل المباشر مع الدكتورة أو متابعة المقالات.</p>
                 </div>
                 <div class="flex flex-wrap gap-2.5 justify-center">
-                    <a href="https://wa.me/201234567890" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 light:text-emerald-700 font-bold hover:bg-emerald-500 hover:text-slate-950 light:hover:text-white transition text-xs shadow-sm">
-                        <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                    <a href="https://whatsapp.com/channel/0029Vb8kKwt4NVitAwnO2x0O" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold hover:bg-emerald-500 hover:text-slate-950 transition text-xs shadow-sm platform-wa">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Channel
                     </a>
-                    <a href="https://facebook.com" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 light:text-blue-700 font-bold hover:bg-blue-500 hover:text-white transition text-xs shadow-sm">
+                    <a href="https://www.facebook.com/share/1Y1DPSYH9v/" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 font-bold hover:bg-blue-500 hover:text-white transition text-xs shadow-sm platform-fb">
                         <i class="fa-brands fa-facebook-f text-sm"></i> Facebook Page
                     </a>
-                    <a href="https://t.me/username" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 light:text-sky-700 font-bold hover:bg-sky-500 hover:text-slate-950 light:hover:text-white transition text-xs shadow-sm">
+                    <a href="https://t.me/Dr_mai11" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 font-bold hover:bg-sky-500 hover:text-slate-950 transition text-xs shadow-sm platform-tg">
                         <i class="fa-brands fa-telegram text-sm"></i> Telegram
                     </a>
-                    <a href="https://instagram.com" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 light:text-rose-700 font-bold hover:bg-rose-500 hover:text-white transition text-xs shadow-sm">
+                    <a href="https://www.instagram.com/drmaimahmoudatei?igsh=cDUwMTRsMnZndmJq" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 font-bold hover:bg-rose-500 hover:text-white transition text-xs shadow-sm platform-ig">
                         <i class="fa-brands fa-instagram text-sm"></i> Instagram
                     </a>
                 </div>
             </div>
 
-            <!-- كارت العرض الاحترافي -->
-            <div class="max-w-3xl mx-auto bg-gradient-to-br from-[#162235] to-[#111827] light:from-[#eaf0f6] light:to-[#dce4ec] border-2 border-teal-500/50 p-6 sm:p-8 rounded-3xl text-center shadow-2xl relative overflow-hidden reveal-item card-box special-glow-card">
+            <div class="max-w-3xl mx-auto bg-gradient-to-br from-[#162235] to-[#111827] promo-card border-2 border-teal-500/50 p-6 sm:p-8 rounded-3xl text-center shadow-2xl relative overflow-hidden reveal card-box special-glow-card">
                 <div class="absolute -top-12 -right-12 w-32 h-32 bg-teal-500/10 rounded-full blur-3xl"></div>
                 <div class="space-y-4">
                     <span class="inline-block px-3 py-1 bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 text-xs font-black rounded-lg uppercase tracking-wider" data-i18n="card-tag">مبادرة الدعم النفسي الأولية</span>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white light:text-slate-900 heading-main" data-i18n="card-main-title">أول جلستين استشاريتين مجاناً بالكامل</h3>
-                    <p class="text-xs sm:text-sm text-slate-300 light:text-slate-700 text-muted max-w-xl mx-auto leading-relaxed" data-i18n="card-main-desc">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white heading-main" data-i18n="card-main-title">أول جلستين استشاريتين مجاناً بالكامل</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 text-muted max-w-xl mx-auto leading-relaxed" data-i18n="card-main-desc">
                         نؤمن أن الخطوة الأولى هي الأصعب؛ لذلك نتيح لك جلسات تمهيدية مجانية بالكامل (عدد 2 جلسة) للتقييم والتشخيص المبدئي، وبناء جسور الثقة والراحة التامة للبدء في خطتك العلاجية بدون أي قيود.
                     </p>
                     <div class="pt-2">
-                        <button onclick="redirectToWhatsApp()" class="inline-flex items-center gap-2.5 px-8 py-3.5 bg-teal-500 hover:bg-teal-400 light:bg-teal-600 light:text-white light:hover:bg-teal-700 text-slate-950 font-extrabold rounded-xl transition-all text-sm shadow-xl shadow-teal-500/20 cursor-pointer animate-pulse-subtle">
+                        <button onclick="redirectToWhatsApp()" class="inline-flex items-center gap-2.5 px-8 py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-extrabold rounded-xl transition-all text-sm shadow-xl shadow-teal-500/20 cursor-pointer animate-pulse-subtle promo-btn">
                             <i class="fa-brands fa-whatsapp text-base"></i> <span data-i18n="nav-book-btn">احجز جلستك الآن</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- المحاور والخدمات التفصيلية -->
-            <div class="space-y-6 text-right content-align">
+            <div class="space-y-6 text-right content-align reveal">
                 <div class="text-center sm:text-right content-align">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white light:text-slate-900 heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="section-title">الخدمات الاستشارية والعلاجية المعتمدة</h3>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="section-title">الخدمات الاستشارية والعلاجية المعتمدة</h3>
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="bg-[#111827]/60 light:bg-[#eaf0f6]/70 p-6 rounded-2xl border border-slate-800/80 light:border-slate-300 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
+                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 bg-teal-500/10 text-teal-400 light:text-teal-700 rounded-xl flex items-center justify-center text-xl"><i class="fa-solid fa-brain"></i></div>
-                            <h4 class="text-base font-bold text-white light:text-slate-900 heading-main" data-i18n="service-1-title">جلسات العلاج النفسي الفردي</h4>
-                            <p class="text-xs text-slate-400 light:text-slate-600 leading-relaxed text-muted" data-i18n="service-1-desc">جلسات مخصصة وسرية للتعامل مع اضطرابات القلق، نوبات الاكتئاب، تشتت الانتباه، وبناء آليات مرنة لتخفيف وتجاوز ضغوطات ومخاوف الحياة اليومية.</p>
+                            <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-brain"></i></div>
+                            <h4 class="text-base font-bold text-white heading-main" data-i18n="service-1-title">جلسات العلاج النفسي الفردي</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed text-muted" data-i18n="service-1-desc">جلسات مخصصة وسرية للتعامل مع اضطرابات القلق، نوبات الاكتئاب، تشتت الانتباه، وبناء آليات مرنة لتخفيف وتجاوز ضغوطات ومخاوف الحياة اليومية.</p>
                         </div>
                     </div>
                     
-                    <div class="bg-[#111827]/60 light:bg-[#eaf0f6]/70 p-6 rounded-2xl border border-slate-800/80 light:border-slate-300 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
+                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 light:text-emerald-700 rounded-xl flex items-center justify-center text-xl"><i class="fa-solid fa-people-roof"></i></div>
-                            <h4 class="text-base font-bold text-white light:text-slate-900 heading-main" data-i18n="service-2-title">الإرشاد الأسرى وتطوير العلاقات</h4>
-                            <p class="text-xs text-slate-400 light:text-slate-600 leading-relaxed text-muted" data-i18n="service-2-desc">دراسة وتحليل الخلافات الزوجية، بناء قنوات اتصال متطورة وفعالة داخل الأسرة، وتقديم الدعم والحلول لضمان بيئة أسرية مستقرة تماماً.</p>
+                            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-people-roof"></i></div>
+                            <h4 class="text-base font-bold text-white heading-main" data-i18n="service-2-title">الإرشاد الأسرى وتطوير العلاقات</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed text-muted" data-i18n="service-2-desc">دراسة وتحليل الخلافات الزوجية، بناء قنوات اتصال متطورة وفعالة داخل الأسرة، وتقديم الدعم والحلول لضمان بيئة أسرية مستقرة تماماً.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-child-reaching"></i></div>
+                            <h4 class="text-base font-bold text-white heading-main" data-i18n="service-3-title">تعديل سلوك الأطفال والمراهقين</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed text-muted" data-i18n="service-3-desc">تقديم استشارات متخصصة للتعامل مع العناد، العنف، التأتأة، ومشاكل التحصيل الدراسي، وبناء بيئة تربوية إيجابية تدعم صحة الطفل النفسية.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-seedling"></i></div>
+                            <h4 class="text-base font-bold text-white heading-main" data-i18n="service-4-title">جلسات الدعم وتطوير الذات</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed text-muted" data-i18n="service-4-desc">برامج مخصصة لرفع تقدير الذات، التخلص من متلازمة الاحتراق النفسي والمهني، وتدريبات التنفس والاسترخاء للتحكم في الانفعالات الحادة.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- القيم والمبادئ المهنية للعيادة -->
-            <div class="space-y-6 text-right content-align reveal-item">
+            <div class="space-y-6 text-right content-align reveal">
                 <div class="text-center sm:text-right content-align">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white light:text-slate-900 heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="values-title">القيم والمبادئ التي نلتزم بها</h3>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="values-title">القيم والمبادئ التي نلتزم بها</h3>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div class="p-5 rounded-2xl bg-[#111827]/40 light:bg-[#eaf0f6]/50 border border-slate-800/60 light:border-slate-300 card-box space-y-2">
-                        <div class="text-teal-400 light:text-teal-700 text-lg mb-1"><i class="fa-solid fa-lock"></i></div>
-                        <h4 class="text-sm font-bold text-white light:text-slate-900 heading-main" data-i18n="v1-t">الأمان والخصوصية المطلقة</h4>
-                        <p class="text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="v1-d">نوفر بيئة علاجية خالية تماماً من الأحكام المسبقة، حيث تُحاط بياناتك ونقاشاتك بأعلى مستويات السرية الطبية والمهنية المتكاملة.</p>
+                    <div class="p-5 rounded-2xl bg-[#111827]/40 value-card border border-slate-800/60 card-box space-y-2">
+                        <div class="text-teal-400 icon-text text-lg mb-1"><i class="fa-solid fa-lock"></i></div>
+                        <h4 class="text-sm font-bold text-white heading-main" data-i18n="v1-t">الأمان والخصوصية المطلقة</h4>
+                        <p class="text-xs text-slate-400 text-muted leading-relaxed" data-i18n="v1-d">نوفر بيئة علاجية خالية تماماً من الأحكام المسبقة، حيث تُحاط بياناتك ونقاشاتك بأعلى مستويات السرية الطبية والمهنية المتكاملة.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[#111827]/40 light:bg-[#eaf0f6]/50 border border-slate-800/60 light:border-slate-300 card-box space-y-2">
-                        <div class="text-emerald-400 light:text-emerald-700 text-lg mb-1"><i class="fa-solid fa-heart-pulse"></i></div>
-                        <h4 class="text-sm font-bold text-white light:text-slate-900 heading-main" data-i18n="v2-t">التمكين والدعم المستدام</h4>
-                        <p class="text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="v2-d">لا نكتفي بتقديم حلول مؤقتة، بل نعمل على تسليحك بالأدوات السلوكية والفكرية التي تجعلك قادراً على إدارة صحتك النفسية مستقبلياً.</p>
+                    <div class="p-5 rounded-2xl bg-[#111827]/40 value-card border border-slate-800/60 card-box space-y-2">
+                        <div class="text-emerald-400 icon-text text-lg mb-1"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <h4 class="text-sm font-bold text-white heading-main" data-i18n="v2-t">التمكين والدعم المستدام</h4>
+                        <p class="text-xs text-slate-400 text-muted leading-relaxed" data-i18n="v2-d">لا نكتفي بتقديم حلول مؤقتة، بل نعمل على تسليحك بالأدوات السلوكية والفكرية التي تجعلك قادراً على إدارة صحتك النفسية مستقبلياً.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[#111827]/40 light:bg-[#eaf0f6]/50 border border-slate-800/60 light:border-slate-300 card-box space-y-2">
-                        <div class="text-teal-400 light:text-teal-700 text-lg mb-1"><i class="fa-solid fa-sliders"></i></div>
-                        <h4 class="text-sm font-bold text-white light:text-slate-900 heading-main" data-i18n="v3-t">المرونة ومواكبة الفرد</h4>
-                        <p class="text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="v3-d">كل إنسان هو حالة فريدة وخاصة؛ لذلك يتم صياغة الخطة الاستشارية بناءً على وتيرتك الخاصة وظروفك المحيطة لضمان أفضل استجابة.</p>
+                    <div class="p-5 rounded-2xl bg-[#111827]/40 value-card border border-slate-800/60 card-box space-y-2">
+                        <div class="text-teal-400 icon-text text-lg mb-1"><i class="fa-solid fa-sliders"></i></div>
+                        <h4 class="text-sm font-bold text-white heading-main" data-i18n="v3-t">المرونة ومواكبة الفرد</h4>
+                        <p class="text-xs text-slate-400 text-muted leading-relaxed" data-i18n="v3-d">كل إنسان هو حالة فريدة وخاصة؛ لذلك يتم صياغة الخطة الاستشارية بناءً على وتيرتك الخاصة وظروفك المحيطة لضمان أفضل استجابة.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- منهجية العمل داخل العيادة -->
-            <div class="space-y-6 text-right content-align reveal-item">
+            <div class="space-y-6 text-right content-align reveal">
                 <div class="text-center sm:text-right content-align">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white light:text-slate-900 heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="workflow-title">رحلتك العلاجية خطوة بخطوة</h3>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="workflow-title">رحلتك العلاجية خطوة بخطوة</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-[#111827]/40 light:bg-[#eaf0f6]/50 p-5 rounded-xl border border-slate-800/60 light:border-slate-300 card-box space-y-2">
-                        <span class="text-xs font-bold text-teal-400 light:text-teal-700 font-mono">01.</span>
-                        <h5 class="text-sm font-bold text-white light:text-slate-900 heading-main" data-i18n="wf-1-t">التقييم الأولي المجاني</h5>
-                        <p class="text-[11px] text-slate-400 light:text-slate-600 text-muted" data-i18n="wf-1-d">خلال أول جلستين نقوم بفهم دقيق للمخاوف والتحديات دون أي كلفة مالية.</p>
+                    <div class="bg-[#111827]/40 value-card p-5 rounded-xl border border-slate-800/60 card-box space-y-2">
+                        <span class="text-xs font-bold text-teal-400 font-mono step-number">01.</span>
+                        <h5 class="text-sm font-bold text-white heading-main" data-i18n="wf-1-t">التقييم الأولي المجاني</h5>
+                        <p class="text-[11px] text-slate-400 text-muted" data-i18n="wf-1-d">خلال أول جلستين نقوم بفهم دقيق للمخاوف والتحديات دون أي تكلفة مالية.</p>
                     </div>
-                    <div class="bg-[#111827]/40 light:bg-[#eaf0f6]/50 p-5 rounded-xl border border-slate-800/60 light:border-slate-300 card-box space-y-2">
-                        <span class="text-xs font-bold text-teal-400 light:text-teal-700 font-mono">02.</span>
-                        <h5 class="text-sm font-bold text-white light:text-slate-900 heading-main" data-i18n="wf-2-t">بناء الخطة المخصصة</h5>
-                        <p class="text-[11px] text-slate-400 light:text-slate-600 text-muted" data-i18n="wf-2-d">نصمم برنامجاً علاجياً يتناسب تماماً مع نمط حياتك وظروفك الخاصة.</p>
+                    <div class="bg-[#111827]/40 value-card p-5 rounded-xl border border-slate-800/60 card-box space-y-2">
+                        <span class="text-xs font-bold text-teal-400 font-mono step-number">02.</span>
+                        <h5 class="text-sm font-bold text-white heading-main" data-i18n="wf-2-t">بناء الخطة المخصصة</h5>
+                        <p class="text-[11px] text-slate-400 text-muted" data-i18n="wf-2-d">نصمم برنامجاً علاجياً يتناسب تماماً مع نمط حياتك وظروفك الخاصة.</p>
                     </div>
-                    <div class="bg-[#111827]/40 light:bg-[#eaf0f6]/50 p-5 rounded-xl border border-slate-800/60 light:border-slate-300 card-box space-y-2">
-                        <span class="text-xs font-bold text-teal-400 light:text-teal-700 font-mono">03.</span>
-                        <h5 class="text-sm font-bold text-white light:text-slate-900 heading-main" data-i18n="wf-3-t">التعافي المستدام</h5>
-                        <p class="text-[11px] text-slate-400 light:text-slate-600 text-muted" data-i18n="wf-3-d">تطوير مهارات سلوكية لمواجهة الأزمات المستقبلية وضمان مرونة نفسية دائمة.</p>
+                    <div class="bg-[#111827]/40 value-card p-5 rounded-xl border border-slate-800/60 card-box space-y-2">
+                        <span class="text-xs font-bold text-teal-400 font-mono step-number">03.</span>
+                        <h5 class="text-sm font-bold text-white heading-main" data-i18n="wf-3-t">التعافي المستدام</h5>
+                        <p class="text-[11px] text-slate-400 text-muted" data-i18n="wf-3-d">تطوير مهارات سلوكية لمواجهة الأزمات المستقبلية وضمان مرونة نفسية دائمة.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- قسم الأسئلة الشائعة الموسع والمطور والمترجم كاملاً -->
-            <div class="space-y-4 text-right content-align reveal-item max-w-3xl mx-auto w-full">
+            <div class="space-y-4 text-right content-align reveal max-w-3xl mx-auto w-full">
                 <div class="text-center sm:text-right content-align">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white light:text-slate-900 heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="faq-title">الأسئلة الشائعة</h3>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white heading-main border-r-4 border-teal-500 pr-3 inline-block" data-i18n="faq-title">الأسئلة الشائعة</h3>
                 </div>
                 
-                <div class="border border-slate-800/80 light:border-slate-300 rounded-xl overflow-hidden card-box">
-                    <button onclick="toggleFaq(1)" class="w-full p-4 text-right bg-[#111827]/60 light:bg-[#eaf0f6]/80 font-semibold text-xs sm:text-sm text-white light:text-slate-900 heading-main flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="border border-slate-800/80 rounded-xl overflow-hidden card-box faq-item">
+                    <button onclick="toggleFaq(1)" class="w-full p-4 text-right bg-[#111827]/60 font-semibold text-xs sm:text-sm text-white heading-main flex justify-between items-center focus:outline-none cursor-pointer">
                         <span data-i18n="q1">هل الجلسات تتم بسرية تامة؟</span>
-                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-teal-400 light:text-teal-700 text-xs transition-transform"></i>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-teal-400 text-xs transition-transform"></i>
                     </button>
-                    <div id="faq-ans-1" class="hidden p-4 bg-[#0b0f19]/40 light:bg-[#f4f6f9] border-t border-slate-800/60 light:border-slate-300 text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="a1">
+                    <div id="faq-ans-1" class="hidden p-4 bg-[#0b0f19]/40 border-t border-slate-800/60 text-xs text-slate-400 text-muted leading-relaxed" data-i18n="a1">
                         نعم، السرية والموثوقية هما الركيزة الأساسية في عيادتنا. كافة البيانات والنقاشات محمية بموجب القسم المهني الطبي ولا يتم مشاركتها مطلقاً مع أي جهة أو طرف ثالث.
                     </div>
                 </div>
 
-                <div class="border border-slate-800/80 light:border-slate-300 rounded-xl overflow-hidden card-box">
-                    <button onclick="toggleFaq(2)" class="w-full p-4 text-right bg-[#111827]/60 light:bg-[#eaf0f6]/80 font-semibold text-xs sm:text-sm text-white light:text-slate-900 heading-main flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="border border-slate-800/80 rounded-xl overflow-hidden card-box faq-item">
+                    <button onclick="toggleFaq(2)" class="w-full p-4 text-right bg-[#111827]/60 font-semibold text-xs sm:text-sm text-white heading-main flex justify-between items-center focus:outline-none cursor-pointer">
                         <span data-i18n="q2">كيف يمكنني الاستفادة من العرض المجاني؟</span>
-                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-teal-400 light:text-teal-700 text-xs transition-transform"></i>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-teal-400 text-xs transition-transform"></i>
                     </button>
-                    <div id="faq-ans-2" class="hidden p-4 bg-[#0b0f19]/40 light:bg-[#f4f6f9] border-t border-slate-800/60 light:border-slate-300 text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="a2">
+                    <div id="faq-ans-2" class="hidden p-4 bg-[#0b0f19]/40 border-t border-slate-800/60 text-xs text-slate-400 text-muted leading-relaxed" data-i18n="a2">
                         بمجرد الضغط على أزرار الحجز وتحويلك للواتساب المباشر، سيتم إدراجك تلقائياً ضمن المبادرة وتنسيق مواعيد أول جلستين لك مجاناً وبدون أي مقدمات دفع أو التزامات مالية.
                     </div>
                 </div>
 
-                <div class="border border-slate-800/80 light:border-slate-300 rounded-xl overflow-hidden card-box">
-                    <button onclick="toggleFaq(3)" class="w-full p-4 text-right bg-[#111827]/60 light:bg-[#eaf0f6]/80 font-semibold text-xs sm:text-sm text-white light:text-slate-900 heading-main flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="border border-slate-800/80 rounded-xl overflow-hidden card-box faq-item">
+                    <button onclick="toggleFaq(3)" class="w-full p-4 text-right bg-[#111827]/60 font-semibold text-xs sm:text-sm text-white heading-main flex justify-between items-center focus:outline-none cursor-pointer">
                         <span data-i18n="q3">كم تبلغ مدة الجلسة الاستشارية؟</span>
-                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-teal-400 light:text-teal-700 text-xs transition-transform"></i>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-teal-400 text-xs transition-transform"></i>
                     </button>
-                    <div id="faq-ans-3" class="hidden p-4 bg-[#0b0f19]/40 light:bg-[#f4f6f9] border-t border-slate-800/60 light:border-slate-300 text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="a3">
+                    <div id="faq-ans-3" class="hidden p-4 bg-[#0b0f19]/40 border-t border-slate-800/60 text-xs text-slate-400 text-muted leading-relaxed" data-i18n="a3">
                         تتراوح مدة الجلسة الأساسية بين 45 إلى 60 دقيقة كاملة، وهي مساحة زمنية كافية لمناقشة كافة التطورات السلوكية، ومراجعة الخطة والتدريبات المحددة سلفاً.
                     </div>
                 </div>
 
-                <div class="border border-slate-800/80 light:border-slate-300 rounded-xl overflow-hidden card-box">
-                    <button onclick="toggleFaq(4)" class="w-full p-4 text-right bg-[#111827]/60 light:bg-[#eaf0f6]/80 font-semibold text-xs sm:text-sm text-white light:text-slate-900 heading-main flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="border border-slate-800/80 rounded-xl overflow-hidden card-box faq-item">
+                    <button onclick="toggleFaq(4)" class="w-full p-4 text-right bg-[#111827]/60 font-semibold text-xs sm:text-sm text-white heading-main flex justify-between items-center focus:outline-none cursor-pointer">
                         <span data-i18n="q4">هل تتوفر استشارات عن بُعد (أونلاين)؟</span>
-                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-teal-400 light:text-teal-700 text-xs transition-transform"></i>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-teal-400 text-xs transition-transform"></i>
                     </button>
-                    <div id="faq-ans-4" class="hidden p-4 bg-[#0b0f19]/40 light:bg-[#f4f6f9] border-t border-slate-800/60 light:border-slate-300 text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="a4">
+                    <div id="faq-ans-4" class="hidden p-4 bg-[#0b0f19]/40 border-t border-slate-800/60 text-xs text-slate-400 text-muted leading-relaxed" data-i18n="a4">
                         نعم بكل تأكيد. نقدم خدمات الاستشارات والجلسات النفسية والأسرية عبر الإنترنت من خلال منصات الاتصال المشفرة والآمنة لتسهيل الحضور للعملاء من كافة المحافظات وخارج الدولة.
                     </div>
                 </div>
 
-                <!-- سؤال جديد 5 -->
-                <div class="border border-slate-800/80 light:border-slate-300 rounded-xl overflow-hidden card-box">
-                    <button onclick="toggleFaq(5)" class="w-full p-4 text-right bg-[#111827]/60 light:bg-[#eaf0f6]/80 font-semibold text-xs sm:text-sm text-white light:text-slate-900 heading-main flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="border border-slate-800/80 rounded-xl overflow-hidden card-box faq-item">
+                    <button onclick="toggleFaq(5)" class="w-full p-4 text-right bg-[#111827]/60 font-semibold text-xs sm:text-sm text-white heading-main flex justify-between items-center focus:outline-none cursor-pointer">
                         <span data-i18n="q5">هل يمكن حضور أفراد الأسرة معاً في الجلسة؟</span>
-                        <i id="faq-icon-5" class="fa-solid fa-chevron-down text-teal-400 light:text-teal-700 text-xs transition-transform"></i>
+                        <i id="faq-icon-5" class="fa-solid fa-chevron-down text-teal-400 text-xs transition-transform"></i>
                     </button>
-                    <div id="faq-ans-5" class="hidden p-4 bg-[#0b0f19]/40 light:bg-[#f4f6f9] border-t border-slate-800/60 light:border-slate-300 text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="a5">
+                    <div id="faq-ans-5" class="hidden p-4 bg-[#0b0f19]/40 border-t border-slate-800/60 text-xs text-slate-400 text-muted leading-relaxed" data-i18n="a5">
                         نعم، في جلسات الإرشاد الأسري والزواجي يُفضل حضور الأطراف المعنية لبناء قنوات تواصل مشتركة، ويتم تحديد ذلك بناءً على طبيعة الحالة في جلسة التقييم الأولى.
                     </div>
                 </div>
 
-                <!-- سؤال جديد 6 -->
-                <div class="border border-slate-800/80 light:border-slate-300 rounded-xl overflow-hidden card-box">
-                    <button onclick="toggleFaq(6)" class="w-full p-4 text-right bg-[#111827]/60 light:bg-[#eaf0f6]/80 font-semibold text-xs sm:text-sm text-white light:text-slate-900 heading-main flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="border border-slate-800/80 rounded-xl overflow-hidden card-box faq-item">
+                    <button onclick="toggleFaq(6)" class="w-full p-4 text-right bg-[#111827]/60 font-semibold text-xs sm:text-sm text-white heading-main flex justify-between items-center focus:outline-none cursor-pointer">
                         <span data-i18n="q6">ما هي سياسة إلغاء أو تعديل المواعيد؟</span>
-                        <i id="faq-icon-6" class="fa-solid fa-chevron-down text-teal-400 light:text-teal-700 text-xs transition-transform"></i>
+                        <i id="faq-icon-6" class="fa-solid fa-chevron-down text-teal-400 text-xs transition-transform"></i>
                     </button>
-                    <div id="faq-ans-6" class="hidden p-4 bg-[#0b0f19]/40 light:bg-[#f4f6f9] border-t border-slate-800/60 light:border-slate-300 text-xs text-slate-400 light:text-slate-600 text-muted leading-relaxed" data-i18n="a6">
+                    <div id="faq-ans-6" class="hidden p-4 bg-[#0b0f19]/40 border-t border-slate-800/60 text-xs text-slate-400 text-muted leading-relaxed" data-i18n="a6">
                         يمكن تعديل أو إلغاء موعد الجلسة المحجوزة مسبقاً قبل 24 ساعة على الأقل من موعدها المحدد، لضمان إتاحة الفرصة لحالات أخرى بانتظار الدعم.
+                    </div>
+                </div>
+
+                <div class="border border-slate-800/80 rounded-xl overflow-hidden card-box faq-item">
+                    <button onclick="toggleFaq(7)" class="w-full p-4 text-right bg-[#111827]/60 font-semibold text-xs sm:text-sm text-white heading-main flex justify-between items-center focus:outline-none cursor-pointer">
+                        <span data-i18n="q7">كم عدد الجلسات التي أحتاجها للتعافي الكامل؟</span>
+                        <i id="faq-icon-7" class="fa-solid fa-chevron-down text-teal-400 text-xs transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-7" class="hidden p-4 bg-[#0b0f19]/40 border-t border-slate-800/60 text-xs text-slate-400 text-muted leading-relaxed" data-i18n="a7">
+                        لا يوجد عدد ثابت؛ الأمر يعتمد تماماً على نوع المشكلة واستجابة الشخص. يتم تحديد خطة زمنية واضحة ومقترحة بنهاية جلستي التقييم الأولي المجاني.
+                    </div>
+                </div>
+
+                <div class="border border-slate-800/80 rounded-xl overflow-hidden card-box faq-item">
+                    <button onclick="toggleFaq(8)" class="w-full p-4 text-right bg-[#111827]/60 font-semibold text-xs sm:text-sm text-white heading-main flex justify-between items-center focus:outline-none cursor-pointer">
+                        <span data-i18n="q8">هل يتم تقديم استشارات طارئة أو فورية؟</span>
+                        <i id="faq-icon-8" class="fa-solid fa-chevron-down text-teal-400 text-xs transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-8" class="hidden p-4 bg-[#0b0f19]/40 border-t border-slate-800/60 text-xs text-slate-400 text-muted leading-relaxed" data-i18n="a8">
+                        نعم، نعمل على توفير خانات عاجلة للحالات المتقدمة التي تمر بأزمات نفسية حادة، ويمكنك إخطار فريق الدعم عبر الواتساب لتنسيق موعد استثنائي سريع.
                     </div>
                 </div>
             </div>
 
-            <!-- المؤهلات الأكاديمية -->
-            <div class="pt-6 border-t border-slate-800/60 light:border-slate-300 text-xs text-slate-400 light:text-slate-600 text-right content-align space-y-3 text-muted reveal-item">
-                <div class="flex items-center gap-3"><i class="fa-solid fa-graduation-cap text-teal-400 light:text-teal-700 text-sm flex-shrink-0"></i> <span data-i18n="cred-1">ماجستير ودكتوراه مهنية في العلاج النفسي والأسري المعتمد</span></div>
-                <div class="flex items-center gap-3"><i class="fa-solid fa-id-card-clip text-teal-400 light:text-teal-700 text-sm flex-shrink-0"></i> <span data-i18n="cred-2">عضوية رسمية وموثقة بالبورد البريطاني للاستشارات والعلاج النفسي</span></div>
-                <div class="flex items-center gap-3"><i class="fa-solid fa-certificate text-teal-400 light:text-teal-700 text-sm flex-shrink-0"></i> <span data-i18n="cred-3">حاصلة على برنامج تدريبي متقدم في التوجيه السلوكي من جامعة ستانفورد</span></div>
+            <div class="pt-6 border-t border-slate-800/60 text-xs text-slate-400 text-right content-align space-y-3 text-muted reveal">
+                <div class="flex items-center gap-3"><i class="fa-solid fa-graduation-cap text-teal-400 text-sm flex-shrink-0 academic-icon"></i> <span data-i18n="cred-1">ماجستير ودكتوراه مهنية في العلاج النفسي والأسري المعتمد</span></div>
+                <div class="flex items-center gap-3"><i class="fa-solid fa-id-card-clip text-teal-400 text-sm flex-shrink-0 academic-icon"></i> <span data-i18n="cred-2">عضوية رسمية وموثقة بالبورد البريطاني للاستشارات والعلاج النفسي</span></div>
+                <div class="flex items-center gap-3"><i class="fa-solid fa-certificate text-teal-400 text-sm flex-shrink-0 academic-icon"></i> <span data-i18n="cred-3">حاصلة على برنامج تدريبي متقدم في التوجيه السلوكي من جامعة ستانفورد</span></div>
             </div>
         </div>
 
-        <!-- ==================== TAB 2: SHARE PAGE ==================== -->
         <div id="tab-share" class="hidden space-y-6 text-center fade-in max-w-md mx-auto w-full pt-4">
             <div class="space-y-1.5">
-                <h2 class="text-2xl font-bold text-white light:text-slate-900 heading-main" data-i18n="share-title">شارك الموقع</h2>
-                <p class="text-slate-400 light:text-slate-600 text-xs text-muted" data-i18n="share-subtitle">ساهم في نشر قنوات الدعم والإرشاد النفسي المتكامل ومشاركة رابط الموقع لتعم الفائدة لمن يحتاجه.</p>
+                <h2 class="text-2xl font-bold text-white heading-main" data-i18n="share-title">شارك الموقع</h2>
+                <p class="text-slate-400 text-xs text-muted" data-i18n="share-subtitle">ساهم في نشر قنوات الدعم والإرشاد النفسي المتكامل ومشاركة رابط الموقع لتعم الفائدة لمن يحتاجه.</p>
             </div>
 
             <div class="space-y-4">
-                <button onclick="copyLink()" class="w-full bg-[#111827] light:bg-[#eaf0f6] hover:border-teal-500 border border-slate-800 light:border-slate-300 p-4 rounded-xl text-right content-align flex items-center justify-between transition focus:outline-none cursor-pointer card-box">
+                <button onclick="copyLink()" class="w-full bg-[#111827] share-link-btn hover:border-teal-500 border border-slate-800 p-4 rounded-xl text-right content-align flex items-center justify-between transition focus:outline-none cursor-pointer card-box">
                     <div class="flex items-center gap-3">
-                        <span class="text-lg p-2.5 bg-[#0b0f19] light:bg-[#dce4ec] text-teal-400 light:text-teal-700 rounded-xl border border-slate-800/40 light:border-slate-300"><i class="fa-solid fa-link"></i></span>
+                        <span class="text-lg p-2.5 bg-[#0b0f19] link-icon-span text-teal-400 rounded-xl border border-slate-800/40"><i class="fa-solid fa-link"></i></span>
                         <div>
-                            <h4 class="text-xs font-bold text-white light:text-slate-900 heading-main" data-i18n="share-link-head">رابط الموقع المباشر</h4>
-                            <p class="text-[10px] text-slate-400 light:text-slate-600 mt-0.5 text-muted" data-i18n="share-link-sub">اضغط لنسخ رابط الموقع الإلكتروني فوراً</p>
+                            <h4 class="text-xs font-bold text-white heading-main" data-i18n="share-link-head">رابط الموقع المباشر</h4>
+                            <p class="text-[10px] text-slate-400 mt-0.5 text-muted" data-i18n="share-link-sub">اضغط لنسخ رابط الموقع الإلكتروني فوراً</p>
                         </div>
                     </div>
-                    <span class="text-xs font-bold text-teal-400 light:text-teal-700" id="copyStatus" data-i18n="share-btn-copy">نسخ الرابط</span>
+                    <span class="text-xs font-bold text-teal-400 status-txt" id="copyStatus" data-i18n="share-btn-copy">نسخ الرابط</span>
                 </button>
 
-                <div class="bg-[#111827] light:bg-[#eaf0f6] border border-slate-800 light:border-slate-300 p-6 rounded-3xl space-y-4 card-box flex flex-col items-center">
+                <div class="bg-[#111827] qr-container-box border border-slate-800 p-6 rounded-3xl space-y-4 card-box flex flex-col items-center">
                     <div class="text-right content-align w-full">
-                        <h4 class="text-xs font-bold text-white light:text-slate-900 heading-main" data-i18n="share-qr-title">رمز الاستجابة السريعة لمسح الموقع</h4>
-                        <p class="text-[10px] text-slate-400 light:text-slate-600 mt-0.5 text-muted" data-i18n="share-qr-desc">يمكن للآخرين توجيه كاميرا الموبايل لهذا الرمز لفتح الموقع ومشاركته لحظياً</p>
+                        <h4 class="text-xs font-bold text-white heading-main" data-i18n="share-qr-title">رمز الاستجابة السريعة لمسح الموقع</h4>
+                        <p class="text-[10px] text-slate-400 mt-0.5 text-muted" data-i18n="share-qr-desc">يمكن للآخرين توجيه كاميرا الموبايل لهذا الرمز لفتح الموقع ومشاركته لحظياً</p>
                     </div>
                     <div class="bg-white p-3 rounded-2xl inline-block shadow-inner shadow-slate-900" id="qrcode"></div>
                 </div>
             </div>
         </div>
-
     </main>
 
-    <!-- FOOTER (مترجم بالكامل الآن) -->
-    <footer class="bg-[#111827] light:bg-[#eaf0f6] border-t border-slate-800/60 light:border-slate-300 px-6 py-6 mt-12 footer-box">
+    <footer class="bg-[#111827] footer-main border-t border-slate-800/60 px-6 py-6 mt-12 footer-box">
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-center sm:text-right text-muted">
-            <p id="footer-copy" data-i18n="footer-copy">© 2026 د. مي محمود عطيّة. جميع الحقوق محفوظة.</p>
-            <p id="footer-secure" data-i18n="footer-secure" class="text-[10px] text-slate-500 light:text-slate-600">مساحة علاجية آمنة ومحمية بالكامل.</p>
+            <p id="footer-copy" data-i18n="footer-copy">© 2026 منصة روح للروح مع د.مي محمود. جميع الحقوق محفوظة.</p>
+            <p id="footer-secure" data-i18n="footer-secure" class="text-[10px] text-slate-500">مساحة علاجية آمنة ومحمية بالكامل.</p>
         </div>
     </footer>
 
