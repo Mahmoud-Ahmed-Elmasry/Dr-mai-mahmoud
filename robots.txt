@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# رابط خريطة الموقع
-Sitemap: https://dr-mai-mahmoud.vercel.app/sitemap.xml
+# رابط خريطة الموقع على vercel
+Sitemap: https://rouh-lil-rouh.vercel.app/sitemap.xml
