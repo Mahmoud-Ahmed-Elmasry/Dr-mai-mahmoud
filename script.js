@@ -1,11 +1,11 @@
 const translations = {
     ar: {
-        "page-title": "موقع روح للروح مع د.مي محمود - للاستشارات النفسية والأسرية",
+        "page-title": "منصة روح للروح مع د.مي محمود - للاستشارات النفسية والأسرية",
         "logo-text": "روح للروح مع د.مي محمود",
         "nav-home": "الرئيسية",
         "nav-share": "شارك الموقع",
         "nav-book-btn": "احجز جلستك الآن",
-        "hero-slogan": "كل خطوة نحو التعافي حياة", 
+        "hero-slogan": "كل خطوة نحو التعافي حياة.", 
         "hero-title": "خطوتك الأولى نحو<br>نفسٍ مطمئنة وحياة أسرية مستقرة", 
         "hero-desc": "مرحباً بك في مساحتك الآمنة للاستشارات والدعم المتخصص مع د. مي محمود عطية. نساعدك هنا عبر مناهج التحليل السلوكي المعرفي والإرشاد الأسري المعتمد لتجاوز التراكمات النفسية وبناء بيئة حياة مستقرة ومتوازنة.",
         "presence-title": "نحن متواجدون الآن للرد الفوري عبر المنصات التالية:",
@@ -132,17 +132,21 @@ const translations = {
 };
 
 let currentLang = 'ar';
+let qrGenerated = false;
 
 function toggleLanguage() {
     currentLang = currentLang === 'ar' ? 'en' : 'ar';
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = currentLang;
     
-    document.getElementById('lang-btn-text').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+    const langBtnText = document.getElementById('lang-btn-text');
+    if (langBtnText) {
+        langBtnText.textContent = currentLang === 'ar' ? 'English' : 'العربية';
+    }
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[currentLang][key]) {
+        if (translations[currentLang] && translations[currentLang][key]) {
             if (key === 'hero-title') {
                 el.innerHTML = translations[currentLang][key];
             } else if (el.tagName === 'TITLE') {
@@ -155,7 +159,9 @@ function toggleLanguage() {
 }
 
 function toggleTheme() {
-    document.documentElement.classList.toggle('light');
+    const htmlEl = document.documentElement;
+    htmlEl.classList.toggle('dark');
+    htmlEl.classList.toggle('light');
     document.body.classList.toggle('light-theme');
 }
 
@@ -174,6 +180,7 @@ function switchTab(tabId) {
         } else {
             btnShare.className = "px-4 py-2.5 rounded-xl transition cursor-pointer bg-teal-600 text-white font-semibold";
             btnHome.className = "px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 tab-share-btn hover:bg-slate-800/60";
+            generateQRCode();
         }
     }
 }
@@ -186,51 +193,66 @@ function toggleFaq(id) {
     const ans = document.getElementById(`faq-ans-${id}`);
     const icon = document.getElementById(`faq-icon-${id}`);
     
-    if (ans.classList.contains('hidden')) {
-        ans.classList.remove('hidden');
-        icon.style.transform = 'rotate(180deg)';
-    } else {
-        ans.classList.add('hidden');
-        icon.style.transform = 'rotate(0deg)';
+    if (ans && icon) {
+        if (ans.classList.contains('hidden')) {
+            ans.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+        } else {
+            ans.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+        }
     }
 }
 
 function copyLink() {
     navigator.clipboard.writeText(window.location.href).then(() => {
         const statusText = document.getElementById('copyStatus');
-        const originalText = statusText.textContent;
-        statusText.textContent = currentLang === 'ar' ? 'تم النسخ!' : 'Copied!';
-        setTimeout(() => {
-            statusText.textContent = originalText;
-        }, 2000);
-    });
-}
-
-function revealSections() {
-    const reveals = document.querySelectorAll(".reveal");
-    reveals.forEach((reveal) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveal.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 50) {
-            reveal.classList.add("active");
+        if (statusText) {
+            const originalText = statusText.textContent;
+            statusText.textContent = currentLang === 'ar' ? 'تم النسخ!' : 'Copied!';
+            setTimeout(() => {
+                statusText.textContent = originalText;
+            }, 2000);
         }
+    }).catch(err => {
+        console.error('Copy failed: ', err);
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    revealSections();
-    window.addEventListener("scroll", revealSections);
-    
+function generateQRCode() {
+    if (qrGenerated) return;
     const qrElement = document.getElementById("qrcode");
-    if(qrElement && typeof QRCode !== 'undefined') {
+    if (qrElement && typeof QRCode !== 'undefined') {
         qrElement.innerHTML = "";
         new QRCode(qrElement, {
             text: window.location.href,
             width: 128,
             height: 128,
-            colorDark : "#0f766e",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
+            colorDark: "#0f766e",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
         });
+        qrGenerated = true;
     }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal");
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.15
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    reveals.forEach(el => revealObserver.observe(el));
 });

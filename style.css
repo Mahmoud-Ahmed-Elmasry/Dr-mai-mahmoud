@@ -250,7 +250,7 @@ html.light, body.light, .light body {
 /* 5. إصلاحات استجابة الشاشات الصغيرة (Responsive Fixes) */
 /* =================================================== */
 @media (max-width: 480px) {
-    nav .container, .light nav .container {
+    nav .nav-container {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
