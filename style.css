@@ -1,5 +1,5 @@
 /* =================================================== */
-/* 1. الأساسيات وإعدادات الخطوط والوقاية من الخروج عن الشاشة */
+/* 1. الأساسيات وتحسين أداء المعالجة (GPU Acceleration) */
 /* =================================================== */
 html, body {
     max-width: 100%;
@@ -15,38 +15,45 @@ html, body {
     padding: 0;
 }
 
+/* عزل التبويبات لمنع المتصفح من إعادة رسم كل الصفحة عند التبديل */
+.tab-content {
+    contain: content;
+    will-change: opacity, transform;
+}
+
 /* =================================================== */
-/* 2. ميزة الاختفاء والظهور مع السكرول والأسئلة الشائعة */
+/* 2. أنيميشن فائق السلاسة والتسريع الهاردويري */
 /* =================================================== */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translate3d(0, 20px, 0);
+    will-change: opacity, transform;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
 }
 
-/* ضمان ظهور كروت الأسئلة الشائعة فوراً دون تعليق */
 .faq-item.reveal {
     opacity: 1 !important;
     transform: none !important;
 }
 
 .fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 0.3s ease-out forwards;
+    will-change: opacity, transform;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translate3d(0, 8px, 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -57,7 +64,7 @@ html, body {
 }
 
 /* =================================================== */
-/* 3. تأثيرات وتكامل الـ Light Mode الاحترافي */
+/* 3. تأثيرات المظهر الفاتح (Light Mode) */
 /* =================================================== */
 html.light, body.light, .light body {
     background-color: #f4f6f9 !important;
@@ -65,7 +72,7 @@ html.light, body.light, .light body {
 }
 
 .light nav {
-    background-color: rgba(234, 240, 246, 0.9) !important;
+    background-color: rgba(234, 240, 246, 0.95) !important;
     border-color: #e2e8f0 !important;
 }
 
@@ -207,35 +214,33 @@ html.light, body.light, .light body {
 }
 
 /* =================================================== */
-/* 4. تأثيرات الكروت والتفاعل */
+/* 4. كروت تفاعلية وخفيفة في المعالجة */
 /* =================================================== */
 .card-box {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    will-change: transform;
 }
 
 .hover-reveal-card:hover {
-    transform: translateY(-4px);
+    transform: translate3d(0, -3px, 0);
     border-color: rgba(20, 184, 166, 0.4) !important;
-    box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.1);
 }
 
 .animate-pulse-subtle {
-    animation: pulseSubtle 2s infinite;
+    animation: pulseSubtle 2.5s infinite;
 }
 
 @keyframes pulseSubtle {
     0%, 100% {
         transform: scale(1);
-        box-shadow: 0 4px 15px rgba(20, 184, 166, 0.2);
     }
     50% {
         transform: scale(1.02);
-        box-shadow: 0 4px 25px rgba(20, 184, 166, 0.4);
     }
 }
 
 .special-glow-card {
-    box-shadow: 0 0 30px rgba(20, 184, 166, 0.15);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.12);
 }
 
 [dir="rtl"] .content-align {
@@ -247,7 +252,7 @@ html.light, body.light, .light body {
 }
 
 /* =================================================== */
-/* 5. إصلاحات استجابة الشاشات الصغيرة (Responsive Fixes) */
+/* 5. استجابة كاملة للهواتف الشديدة الصغر */
 /* =================================================== */
 @media (max-width: 480px) {
     nav .nav-container {
@@ -257,12 +262,12 @@ html.light, body.light, .light body {
         gap: 6px !important;
         justify-content: space-between !important;
         align-items: center !important;
-        padding: 6px !important;
+        padding: 4px !important;
     }
 
     .lang-toggle-btn, .theme-toggle-btn, .tab-share-btn, .whatsapp-nav-btn {
         padding: 5px 8px !important;
-        font-size: 12px !important;
+        font-size: 11px !important;
         white-space: nowrap !important;
         max-width: fit-content !important;
     }
@@ -271,6 +276,6 @@ html.light, body.light, .light body {
         font-size: 15px !important;
         width: 100% !important;
         text-align: center !important;
-        margin-bottom: 4px !important;
+        margin-bottom: 2px !important;
     }
 }

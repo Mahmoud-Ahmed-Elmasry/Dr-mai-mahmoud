@@ -63,9 +63,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#0b0f19] text-slate-100 dark:bg-[#0b0f19] dark:text-slate-100 light-theme min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white transition-colors duration-300">
+<body class="bg-[#0b0f19] text-slate-100 dark:bg-[#0b0f19] dark:text-slate-100 light-theme min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white transition-colors duration-200">
 
-    <nav class="sticky top-0 z-50 bg-[#111827]/80 dark:bg-[#111827]/80 backdrop-blur-lg border-b border-slate-800/60 px-4 py-4 nav-bar">
+    <nav class="sticky top-0 z-50 bg-[#111827]/90 dark:bg-[#111827]/90 backdrop-blur-md border-b border-slate-800/60 px-4 py-4 nav-bar">
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 nav-container">
             <div class="flex items-center justify-between w-full sm:w-auto gap-4">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
@@ -94,7 +94,8 @@
     </nav>
 
     <main class="max-w-5xl mx-auto p-4 sm:p-6 flex-grow w-full flex flex-col justify-center">
-        <div id="tab-home" class="space-y-14 fade-in pt-2">
+        <!-- الصفحة الرئيسية -->
+        <div id="tab-home" class="tab-content space-y-14 fade-in pt-2">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div class="md:col-span-7 space-y-6 text-right content-align order-2 md:order-1">
                     <span class="inline-flex items-center gap-2 px-3.5 py-2 bg-teal-500/10 text-teal-400 hero-badge-style text-xs sm:text-sm font-semibold rounded-full border border-teal-500/20 reveal">
@@ -114,7 +115,7 @@
                 </div>
                 <div class="md:col-span-5 flex justify-center reveal order-1 md:order-2">
                     <div class="relative group">
-                        <div class="absolute -inset-1.5 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+                        <div class="absolute -inset-1.5 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
                         <div class="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-[#111827] dr-img-container border border-slate-800/80 rounded-full p-2 shadow-2xl card-box">
                             <img src="dr-mai.png" alt="د. مي محمود عطية" class="w-full h-full object-cover rounded-full filter brightness-95">
                         </div>
@@ -147,7 +148,6 @@
             </div>
 
             <div class="max-w-3xl mx-auto bg-gradient-to-br from-[#162235] to-[#111827] promo-card border-2 border-teal-500/50 p-6 sm:p-8 rounded-3xl text-center shadow-2xl relative overflow-hidden reveal card-box special-glow-card">
-                <div class="absolute -top-12 -right-12 w-32 h-32 bg-teal-500/10 rounded-full blur-3xl"></div>
                 <div class="space-y-4">
                     <span class="inline-block px-3 py-1 bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 text-xs font-black rounded-lg uppercase tracking-wider" data-i18n="card-tag">مبادرة الدعم النفسي الأولية</span>
                     <h3 class="text-2xl sm:text-3xl font-extrabold text-white heading-main" data-i18n="card-main-title">أول جلستين استشاريتين مجاناً بالكامل</h3>
@@ -168,7 +168,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
+                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-200 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-brain"></i></div>
                             <h4 class="text-base font-bold text-white heading-main" data-i18n="service-1-title">جلسات العلاج النفسي الفردي</h4>
@@ -176,7 +176,7 @@
                         </div>
                     </div>
                     
-                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
+                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-200 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-people-roof"></i></div>
                             <h4 class="text-base font-bold text-white heading-main" data-i18n="service-2-title">الإرشاد الأسرى وتطوير العلاقات</h4>
@@ -184,7 +184,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-300 flex flex-col justify-between">
+                    <div class="bg-[#111827]/60 service-card p-6 rounded-2xl border border-slate-800/80 card-box space-y-4 shadow-sm hover-reveal-card transition-all duration-200 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-xl icon-box"><i class="fa-solid fa-seedling"></i></div>
                             <h4 class="text-base font-bold text-white heading-main" data-i18n="service-4-title">جلسات الدعم وتطوير الذات</h4>
@@ -333,7 +333,8 @@
             </div>
         </div>
 
-        <div id="tab-share" class="hidden space-y-6 text-center fade-in max-w-md mx-auto w-full pt-4">
+        <!-- صفحة مشاركة الموقع -->
+        <div id="tab-share" class="tab-content hidden space-y-6 text-center fade-in max-w-md mx-auto w-full pt-4">
             <div class="space-y-1.5">
                 <h2 class="text-2xl font-bold text-white heading-main" data-i18n="share-title">شارك الموقع</h2>
                 <p class="text-slate-400 text-xs text-muted" data-i18n="share-subtitle">ساهم في نشر قنوات الدعم والإرشاد النفسي المتكامل ومشاركة رابط الموقع لتعم الفائدة لمن يحتاجه.</p>

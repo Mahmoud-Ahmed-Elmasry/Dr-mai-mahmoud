@@ -165,23 +165,36 @@ function toggleTheme() {
     document.body.classList.toggle('light-theme');
 }
 
+// التبديل بين التبويبات بدون أي تهنيج أو ثقل
 function switchTab(tabId) {
-    document.getElementById('tab-home').classList.add('hidden');
-    document.getElementById('tab-share').classList.add('hidden');
-    document.getElementById(`tab-${tabId}`).classList.remove('hidden');
-
+    const tabHome = document.getElementById('tab-home');
+    const tabShare = document.getElementById('tab-share');
     const btnHome = document.getElementById('btn-home');
     const btnShare = document.getElementById('btn-share');
 
-    if (btnHome && btnShare) {
-        if (tabId === 'home') {
+    if (tabId === 'home') {
+        tabShare.classList.add('hidden');
+        tabHome.classList.remove('hidden');
+
+        if (btnHome && btnShare) {
             btnHome.className = "px-4 py-2.5 rounded-xl transition cursor-pointer bg-teal-600 text-white font-semibold";
             btnShare.className = "px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 tab-share-btn hover:bg-slate-800/60";
-        } else {
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (tabId === 'share') {
+        tabHome.classList.add('hidden');
+        tabShare.classList.remove('hidden');
+
+        if (btnHome && btnShare) {
             btnShare.className = "px-4 py-2.5 rounded-xl transition cursor-pointer bg-teal-600 text-white font-semibold";
             btnHome.className = "px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 tab-share-btn hover:bg-slate-800/60";
-            generateQRCode();
         }
+        
+        // تأجيل رسم الـ QR لعدم تجميد حركة الشاشة
+        requestAnimationFrame(() => {
+            generateQRCode();
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
@@ -236,13 +249,14 @@ function generateQRCode() {
     }
 }
 
+// تفعيل التأثيرات البصرية بطريقة سلسة ومنفصلة
 document.addEventListener("DOMContentLoaded", () => {
     const reveals = document.querySelectorAll(".reveal");
     
     const observerOptions = {
         root: null,
         rootMargin: "0px",
-        threshold: 0.15
+        threshold: 0.1
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
