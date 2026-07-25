@@ -199,7 +199,7 @@ function switchTab(tabId) {
 }
 
 function redirectToWhatsApp() {
-    window.open('https://wa.me/201015571325', '_blank');
+    window.open('https://wa.me/201274350130', '_blank');
 }
 
 function toggleFaq(id) {

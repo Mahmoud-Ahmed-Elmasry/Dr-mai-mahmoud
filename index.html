@@ -16,6 +16,7 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="روح للروح">
     <meta property="og:url" content="https://rouh-lil-rouh.vercel.app/">
     <meta property="og:title" content="موقع روح للروح مع د.مي محمود - للاستشارات النفسية والأسرية">
     <meta property="og:description" content="خطوتك الأولى نحو نفسٍ مطمئنة وحياة أسرية مستقرة. احجز جلستك الآن وتواصل مباشر عبر المنصات المعتمدة.">
@@ -27,16 +28,45 @@
     <meta property="twitter:description" content="خطوتك الأولى نحو نفسٍ مطمئنة وحياة أسرية مستقرة.">
     <meta property="twitter:image" content="https://rouh-lil-rouh.vercel.app/dr-mai.png">
 
-    <!-- البيانات المنظمة (Schema.org) -->
+    <!-- البيانات المنظمة الشاملة (WebSite & MedicalBusiness Schema) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "روح للروح - د. مي محمود",
-      "image": "https://rouh-lil-rouh.vercel.app/dr-mai.png",
-      "description": "موقع للاستشارات النفسية والأسرية والعلاج المعرفي السلوكي والجدلي",
-      "medicalSpecialty": ["Psychiatric", "Counseling"],
-      "priceRange": "$$"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://rouh-lil-rouh.vercel.app/#website",
+          "url": "https://rouh-lil-rouh.vercel.app/",
+          "name": "روح للروح",
+          "alternateName": [
+            "Rouh Lil Rouh",
+            "روح للروح - د. مي محمود"
+          ]
+        },
+        {
+          "@type": "MedicalBusiness",
+          "@id": "https://rouh-lil-rouh.vercel.app/#organization",
+          "name": "روح للروح - د. مي محمود",
+          "alternateName": "موقع روح للروح للاستشارات النفسية والأسرية",
+          "url": "https://rouh-lil-rouh.vercel.app/",
+          "logo": "https://rouh-lil-rouh.vercel.app/icon.png",
+          "image": "https://rouh-lil-rouh.vercel.app/dr-mai.png",
+          "description": "موقع متخصص في الاستشارات النفسية والأسرية والعلاج المعرفي السلوكي (CBT) والجدلي (DBT) تحت إشراف د. مي محمود عطية.",
+          "telephone": "+201274350130",
+          "priceRange": "$$",
+          "medicalSpecialty": ["Psychiatric", "Counseling"],
+          "founder": {
+            "@type": "Person",
+            "name": "د. مي محمود عطية"
+          },
+          "sameAs": [
+            "https://whatsapp.com/channel/0029Vb8kKwt4NVitAwnO2x0O",
+            "https://www.facebook.com/share/1Y1DPSYH9v/",
+            "https://t.me/Dr_mai11",
+            "https://www.instagram.com/drmaimahmoudatei"
+          ]
+        }
+      ]
     }
     </script>
 
@@ -45,6 +75,7 @@
     <link rel="shortcut icon" type="image/png" href="icon.png">
     <link rel="apple-touch-icon" href="icon.png">
     
+    <!-- Tailwind CSS & Configuration -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -59,6 +90,8 @@
             }
         }
     </script>
+
+    <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,15 +99,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="style.css">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1ZX60RRZ6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1ZX60RRZ6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-C1ZX60RRZ6');
-</script>
+      gtag('config', 'G-C1ZX60RRZ6');
+    </script>
     
 </head>
 <body class="bg-[#0b0f19] text-slate-100 dark:bg-[#0b0f19] dark:text-slate-100 light-theme min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white transition-colors duration-200">
