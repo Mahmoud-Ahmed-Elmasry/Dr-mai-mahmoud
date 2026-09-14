@@ -1,247 +1,387 @@
-/* =================================================== */
-/* 1. الأساسيات وتحسين أداء المعالجة (GPU Acceleration) */
-/* =================================================== */
-html, body {
+/* =========================================================
+   روح للروح — Main Styles
+   Clean / Responsive / Mobile Optimized
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET & BASE
+   ========================================================= */
+
+html {
     max-width: 100%;
     overflow-x: hidden;
-    background-color: #0f172a;
-    color: #f8fafc;
+    scroll-behavior: smooth;
 }
 
-* {
-    font-family: 'Cairo', 'Inter', sans-serif;
+body {
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #0b0f19;
+    color: #f8fafc;
+    font-family: "Cairo", "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* عزل التبويبات لمنع المتصفح من إعادة رسم كل الصفحة عند التبديل */
-.tab-content {
-    contain: content;
-    will-change: opacity, transform;
+img,
+video,
+iframe {
+    display: block;
+    max-width: 100%;
 }
 
-/* =================================================== */
-/* 2. أنيميشن فائق السلاسة والتسريع الهاردويري */
-/* =================================================== */
+img {
+    height: auto;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   2. MAIN TAB CONTENT
+   ========================================================= */
+
+.tab-content {
+    width: 100%;
+    contain: content;
+}
+
+
+/* =========================================================
+   3. SCROLL REVEAL
+   ========================================================= */
+
 .reveal {
     opacity: 0;
-    transform: translate3d(0, 20px, 0);
-    will-change: opacity, transform;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(12px);
+    transition:
+        opacity 0.3s ease-out,
+        transform 0.3s ease-out;
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
 }
 
+/* FAQ elements should remain visible */
 .faq-item.reveal {
-    opacity: 1 !important;
-    transform: none !important;
+    opacity: 1;
+    transform: none;
 }
+
+
+/* =========================================================
+   4. FADE IN
+   ========================================================= */
 
 .fade-in {
-    animation: fadeIn 0.3s ease-out forwards;
-    will-change: opacity, transform;
+    animation: fadeIn 0.25s ease-out both;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translate3d(0, 8px, 0);
+        transform: translateY(6px);
     }
+
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translateY(0);
     }
 }
 
-@media (max-width: 380px) {
-    #qrcode {
-        transform: scale(0.9);
-    }
-}
 
-/* =================================================== */
-/* 3. تأثيرات المظهر الفاتح (Light Mode) */
-/* =================================================== */
-html.light, body.light, .light body {
+/* =========================================================
+   5. LIGHT MODE
+   ========================================================= */
+
+body.light-theme {
     background-color: #f4f6f9 !important;
     color: #1e293b !important;
 }
 
-.light nav {
-    background-color: rgba(234, 240, 246, 0.95) !important;
-    border-color: #e2e8f0 !important;
+
+/* Navigation */
+
+body.light-theme nav {
+    background-color: rgba(234, 240, 246, 0.96) !important;
+    border-color: #dbe3eb !important;
 }
 
-.light .logo-gradient-text {
-    background: linear-gradient(to right, #0f766e, #047857) !important;
+
+/* Logo */
+
+body.light-theme .logo-gradient-text {
+    background: linear-gradient(
+        to right,
+        #0f766e,
+        #047857
+    ) !important;
+
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
 }
 
-.light .theme-toggle-btn {
+
+/* Theme Button */
+
+body.light-theme .theme-toggle-btn {
     background-color: #e2e8f0 !important;
     border-color: #cbd5e1 !important;
     color: #d97706 !important;
 }
 
-.light .theme-toggle-btn:hover {
+body.light-theme .theme-toggle-btn:hover {
     background-color: #cbd5e1 !important;
 }
 
-.light .lang-toggle-btn {
+
+/* Language Button */
+
+body.light-theme .lang-toggle-btn {
     background-color: #e2e8f0 !important;
     border-color: #cbd5e1 !important;
     color: #0f766e !important;
 }
 
-.light .lang-toggle-btn:hover {
+body.light-theme .lang-toggle-btn:hover {
     background-color: #cbd5e1 !important;
 }
 
-.light .tab-share-btn {
+
+/* Navigation Buttons */
+
+body.light-theme .tab-share-btn {
     color: #475569 !important;
 }
 
-.light .tab-share-btn:hover {
+body.light-theme .tab-share-btn:hover {
     background-color: #e2e8f0 !important;
 }
 
-.light .whatsapp-nav-btn {
+body.light-theme .whatsapp-nav-btn {
     color: #047857 !important;
 }
 
-.light .hero-badge-style {
+
+/* Hero */
+
+body.light-theme .hero-badge-style {
     background-color: rgba(15, 118, 110, 0.1) !important;
     color: #0f766e !important;
 }
 
-.light .heading-main-title,
-.light .heading-main,
-.light h1, .light h2, .light h3 {
+body.light-theme .heading-main-title,
+body.light-theme .heading-main,
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3 {
     color: #0f172a !important;
 }
 
-.light .text-muted, .light p {
+body.light-theme .text-muted {
     color: #475569 !important;
 }
 
-.light .dr-img-container {
+
+/* Doctor Image */
+
+body.light-theme .dr-img-container {
     background-color: #eaf0f6 !important;
     border-color: #cbd5e1 !important;
 }
 
-.light .platforms-container {
-    background-color: rgba(234, 240, 246, 0.6) !important;
-    border-color: #cbd5e1 !important;
-}
 
-.light .platform-wa { color: #047857 !important; }
-.light .platform-fb { color: #1d4ed8 !important; }
-.light .platform-tg { color: #0369a1 !important; }
-.light .platform-ig { color: #be123c !important; }
+/* Platforms */
 
-.light .promo-card {
-    background: linear-gradient(to bottom right, #eaf0f6, #dce4ec) !important;
-}
-
-.light .promo-btn {
-    background-color: #0f766e !important;
-    color: #ffffff !important;
-}
-
-.light .service-card {
+body.light-theme .platforms-container {
     background-color: rgba(234, 240, 246, 0.7) !important;
     border-color: #cbd5e1 !important;
 }
 
-.light .icon-box {
-    color: #0f766e !important;
+body.light-theme .platform-wa {
+    color: #047857 !important;
 }
 
-.light .value-card {
-    background-color: rgba(234, 240, 246, 0.5) !important;
+body.light-theme .platform-fb {
+    color: #1d4ed8 !important;
+}
+
+body.light-theme .platform-tg {
+    color: #0369a1 !important;
+}
+
+body.light-theme .platform-ig {
+    color: #be123c !important;
+}
+
+
+/* Promotion Card */
+
+body.light-theme .promo-card {
+    background: linear-gradient(
+        135deg,
+        #eaf0f6,
+        #dce4ec
+    ) !important;
+}
+
+body.light-theme .promo-btn {
+    background-color: #0f766e !important;
+    color: #ffffff !important;
+}
+
+
+/* Services */
+
+body.light-theme .service-card {
+    background-color: rgba(234, 240, 246, 0.75) !important;
     border-color: #cbd5e1 !important;
 }
 
-.light .icon-text, 
-.light .step-number,
-.light .academic-icon {
+body.light-theme .icon-box {
     color: #0f766e !important;
 }
 
-.light .faq-item {
+
+/* Values */
+
+body.light-theme .value-card {
+    background-color: rgba(234, 240, 246, 0.6) !important;
     border-color: #cbd5e1 !important;
 }
 
-.light .faq-item button {
-    background-color: rgba(234, 240, 246, 0.8) !important;
+body.light-theme .icon-text,
+body.light-theme .step-number,
+body.light-theme .academic-icon {
+    color: #0f766e !important;
+}
+
+
+/* FAQ */
+
+body.light-theme .faq-item {
+    border-color: #cbd5e1 !important;
+}
+
+body.light-theme .faq-item button {
+    background-color: rgba(234, 240, 246, 0.85) !important;
     color: #0f172a !important;
 }
 
-.light .faq-item div {
+body.light-theme .faq-item div {
     background-color: #f4f6f9 !important;
     border-color: #cbd5e1 !important;
     color: #475569 !important;
 }
 
-.light .share-link-btn {
+
+/* Share Section */
+
+body.light-theme .share-link-btn {
     background-color: #eaf0f6 !important;
     border-color: #cbd5e1 !important;
 }
 
-.light .link-icon-span {
+body.light-theme .link-icon-span {
     background-color: #dce4ec !important;
     color: #0f766e !important;
 }
 
-.light .status-txt {
+body.light-theme .status-txt {
     color: #0f766e !important;
 }
 
-.light .qr-container-box {
+body.light-theme .qr-container-box {
     background-color: #eaf0f6 !important;
     border-color: #cbd5e1 !important;
 }
 
-.light .footer-main {
+
+/* Footer */
+
+body.light-theme .footer-main {
     background-color: #eaf0f6 !important;
     border-color: #cbd5e1 !important;
 }
 
-/* =================================================== */
-/* 4. كروت تفاعلية وخفيفة في المعالجة */
-/* =================================================== */
+
+/* =========================================================
+   6. CARDS
+   ========================================================= */
+
 .card-box {
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    will-change: transform;
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease;
 }
+
+
+/* Desktop Hover */
 
 .hover-reveal-card:hover {
-    transform: translate3d(0, -3px, 0);
+    transform: translateY(-3px);
     border-color: rgba(20, 184, 166, 0.4) !important;
 }
 
+
+/* =========================================================
+   7. SUBTLE PULSE
+   ========================================================= */
+
 .animate-pulse-subtle {
-    animation: pulseSubtle 2.5s infinite;
+    animation: pulseSubtle 2.8s ease-in-out infinite;
 }
 
 @keyframes pulseSubtle {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
-        transform: scale(1.02);
+        transform: scale(1.015);
     }
 }
 
+
+/* =========================================================
+   8. SPECIAL CARD
+   ========================================================= */
+
 .special-glow-card {
-    box-shadow: 0 0 20px rgba(20, 184, 166, 0.12);
+    box-shadow:
+        0 0 18px rgba(20, 184, 166, 0.1);
 }
+
+
+/* =========================================================
+   9. TEXT ALIGNMENT
+   ========================================================= */
 
 [dir="rtl"] .content-align {
     text-align: right;
@@ -251,31 +391,152 @@ html.light, body.light, .light body {
     text-align: left;
 }
 
-/* =================================================== */
-/* 5. استجابة كاملة للهواتف الشديدة الصغر */
-/* =================================================== */
+
+/* =========================================================
+   10. MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .reveal {
+        transform: translateY(7px);
+        transition:
+            opacity 0.22s ease-out,
+            transform 0.22s ease-out;
+    }
+
+    .hover-reveal-card:hover {
+        transform: none;
+    }
+
+    .animate-pulse-subtle {
+        animation: none;
+    }
+}
+
+
+/* =========================================================
+   11. SMALL PHONES
+   ========================================================= */
+
 @media (max-width: 480px) {
+
     nav .nav-container {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
-        gap: 6px !important;
         justify-content: space-between !important;
         align-items: center !important;
+        gap: 6px !important;
+        width: 100%;
         padding: 4px !important;
     }
 
-    .lang-toggle-btn, .theme-toggle-btn, .tab-share-btn, .whatsapp-nav-btn {
+    .logo-gradient-text {
+        max-width: 100%;
+        width: 100% !important;
+        margin-bottom: 2px !important;
+        text-align: center !important;
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+
+    .lang-toggle-btn,
+    .theme-toggle-btn,
+    .tab-share-btn,
+    .whatsapp-nav-btn {
         padding: 5px 8px !important;
         font-size: 11px !important;
+        line-height: 1.4 !important;
         white-space: nowrap !important;
-        max-width: fit-content !important;
+    }
+
+    nav {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+}
+
+
+/* =========================================================
+   12. VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .lang-toggle-btn,
+    .theme-toggle-btn,
+    .tab-share-btn,
+    .whatsapp-nav-btn {
+        padding: 4px 6px !important;
+        font-size: 10px !important;
     }
 
     .logo-gradient-text {
-        font-size: 15px !important;
-        width: 100% !important;
-        text-align: center !important;
-        margin-bottom: 2px !important;
+        font-size: 14px !important;
     }
+
+    #qrcode {
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+}
+
+
+/* =========================================================
+   13. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+
+/* =========================================================
+   14. TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .hover-reveal-card:hover {
+        transform: none !important;
+    }
+
+    .card-box {
+        transition: none;
+    }
+}
+
+
+/* =========================================================
+   15. SAFETY / OVERFLOW
+   ========================================================= */
+
+section,
+main,
+footer,
+nav {
+    max-width: 100%;
+}
+
+pre,
+code {
+    max-width: 100%;
+    overflow-x: auto;
 }
