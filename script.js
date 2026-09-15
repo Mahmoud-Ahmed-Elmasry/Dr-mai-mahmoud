@@ -6,7 +6,7 @@
 
 
 /* =========================================================
-   1. TRANSLATIONS
+   TRANSLATIONS
    ========================================================= */
 
 const translations = {
@@ -41,14 +41,54 @@ const translations = {
         "presence-desc":
             "اضغط على أي موقع للتواصل المباشر مع الدكتورة أو متابعة المقالات.",
 
-        "card-tag":
-            "مبادرة الدعم النفسي الأولية",
 
-        "card-main-title":
-            "أول جلسة بسعر 200 جنيه",
+        /* =====================================================
+           PROMOTION CARD
+        ====================================================== */
 
-        "card-main-desc":
-            "ابدأ جلستك الأولى بسعر 200 جنيه، وبعد التقييم والتشخيص يتم تحديد سعر الجلسات التالية وفقاً لطبيعة الحالة والخطة العلاجية المناسبة.",
+        "promo-title":
+            "مش كل وجع بيبان… ومش كل حاجة تقدر تحكيها لأي حد.",
+
+        "promo-tag":
+            "مستني إيه؟",
+
+        "promo-p1a":
+            "هتفضل شايل اللي جواك لحد إمتى؟",
+
+        "promo-p1b":
+            'هتفضل تقول "أنا كويس"، وأنت من جواك عارف إنك محتاج تتكلم؟',
+
+        "promo-p2a":
+            "القلق، الضغط، التفكير المستمر، ومشاكل العلاقات…",
+
+        "promo-p2b":
+            "كل حاجة بتبدأ بخطوة، وأصعب خطوة أحيانًا هي إنك تقرر تبدأ.",
+
+        "promo-with":
+            "مع",
+
+        "promo-doctor":
+            "د. مي محمود",
+
+        "promo-comma":
+            "،",
+
+        "promo-p3":
+            "هتلاقي مساحة آمنة تتكلم فيها براحتك، بخصوصية واحترام ومن غير حكم.",
+
+        "promo-bold1":
+            "خد الخطوة الأولى لنفسك.",
+
+        "promo-bold2":
+            "واحجز جلستك الآن.",
+
+        "promo-slogan":
+            "كل خطوة نحو التعافي، حياة.",
+
+
+        /* =====================================================
+           SERVICES
+        ====================================================== */
 
         "section-title":
             "الخدمات الاستشارية والعلاجية المعتمدة",
@@ -71,6 +111,11 @@ const translations = {
         "service-4-desc":
             "برامج مخصصة لرفع تقدير الذات، التخلص من متلازمة الاحتراق النفسي والمهني، وتدريبات التنفس والاسترخاء للتحكم في الانفعالات الحادة.",
 
+
+        /* =====================================================
+           VALUES
+        ====================================================== */
+
         "values-title":
             "القيم والمبادئ التي نلتزم بها",
 
@@ -92,26 +137,36 @@ const translations = {
         "v3-d":
             "كل إنسان هو حالة فريدة وخاصة؛ لذلك يتم صياغة الخطة الاستشارية بناءً على وتيرتك الخاصة وظروفك المحيطة لضمان أفضل استجابة.",
 
+
+        /* =====================================================
+           WORKFLOW
+        ====================================================== */
+
         "workflow-title":
             "رحلتك العلاجية خطوة بخطوة",
 
         "wf-1-t":
-            "الجلسة الأولى بسعر 200 جنيه",
+            "الجلسة الأولى",
 
         "wf-1-d":
-            "تبدأ الجلسة الأولى بسعر 200 جنيه للتقييم وفهم الحالة وتحديد الاحتياجات الأساسية.",
+            "نبدأ بالتقييم وفهم الحالة وتحديد الاحتياجات الأساسية.",
 
         "wf-2-t":
             "بناء الخطة المخصصة",
 
         "wf-2-d":
-            "بعد التقييم والتشخيص يتم تحديد الخطة المناسبة للحالة والسعر الخاص بالجلسات التالية.",
+            "بعد التقييم وفهم الحالة يتم تحديد الخطة المناسبة وفقاً للاحتياجات وطبيعة الحالة.",
 
         "wf-3-t":
             "التعافي المستدام",
 
         "wf-3-d":
             "تطوير مهارات سلوكية لمواجهة الأزمات المستقبلية وضمان مرونة نفسية دائمة.",
+
+
+        /* =====================================================
+           FAQ
+        ====================================================== */
 
         "faq-title":
             "الأسئلة الشائعة",
@@ -123,10 +178,10 @@ const translations = {
             "نعم، السرية والموثوقية هما الركيزة الأساسية في عيادتنا. كافة البيانات والنقاشات محمية بموجب القسم المهني الطبي ولا يتم مشاركتها مطلقاً مع أي جهة أو طرف ثالث.",
 
         "q2":
-            "كم سعر الجلسة الأولى والجلسات التالية؟",
+            "كيف يتم تحديد الخطة المناسبة للجلسات؟",
 
         "a2":
-            "سعر الجلسة الأولى هو 200 جنيه. بعد التقييم والتشخيص يتم تحديد سعر الجلسات التالية وفقاً لطبيعة الحالة والخطة العلاجية المناسبة.",
+            "بعد التقييم وفهم الحالة يتم تحديد الخطة المناسبة وفقاً للاحتياجات وطبيعة الحالة.",
 
         "q3":
             "كم تبلغ مدة الجلسة الاستشارية؟",
@@ -164,6 +219,11 @@ const translations = {
         "a8":
             "نعم، نعمل على توفير خانات عاجلة للحالات المتقدمة التي تمر بأزمات نفسية حادة، ويمكنك إخطار فريق الدعم عبر الواتساب لتنسيق موعد استثنائي سريع.",
 
+
+        /* =====================================================
+           CREDENTIALS
+        ====================================================== */
+
         "cred-1":
             "ماجستير ودكتوراه مهنية في العلاج النفسي والأسري المعتمد",
 
@@ -172,6 +232,11 @@ const translations = {
 
         "cred-3":
             "حاصلة على برنامج تدريبي متقدم في التوجيه السلوكي والمعرفي السلوكي (CBT) والجدلي (DBT) والإكلينيكي من جامعة ستانفورد",
+
+
+        /* =====================================================
+           SHARE
+        ====================================================== */
 
         "share-title":
             "شارك الموقع",
@@ -194,6 +259,11 @@ const translations = {
         "share-qr-desc":
             "يمكن للآخرين توجيه كاميرا الموبايل لهذا الرمز لفتح الموقع ومشاركته لحظياً",
 
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
         "footer-copy":
             "© 2026 موقع روح للروح مع د.مي محمود. جميع الحقوق محفوظة.",
 
@@ -201,6 +271,10 @@ const translations = {
             "مساحة علاجية آمنة ومحمية بالكامل."
     },
 
+
+    /* =========================================================
+       ENGLISH
+    ========================================================= */
 
     en: {
         "page-title":
@@ -233,14 +307,54 @@ const translations = {
         "presence-desc":
             "Click on any platform to directly contact the doctor or follow our articles.",
 
-        "card-tag":
-            "Initial Psychological Support Initiative",
 
-        "card-main-title":
-            "First Session for 200 EGP",
+        /* =====================================================
+           PROMOTION CARD
+        ====================================================== */
 
-        "card-main-desc":
-            "Start your first session for 200 EGP. After assessment and diagnosis, the price of subsequent sessions is determined according to the nature of the case and the appropriate treatment plan.",
+        "promo-title":
+            "Not every pain is visible… and not everything can be shared with just anyone.",
+
+        "promo-tag":
+            "What are you waiting for?",
+
+        "promo-p1a":
+            "How long will you keep carrying what's inside you?",
+
+        "promo-p1b":
+            'How long will you keep saying "I\'m fine" while deep down you know you need to talk?',
+
+        "promo-p2a":
+            "Anxiety, pressure, overthinking, and relationship problems…",
+
+        "promo-p2b":
+            "Everything starts with a step, and sometimes the hardest step is deciding to begin.",
+
+        "promo-with":
+            "With",
+
+        "promo-doctor":
+            "Dr. Mai Mahmoud",
+
+        "promo-comma":
+            ",",
+
+        "promo-p3":
+            "you'll find a safe space to speak freely, with privacy, respect, and without judgment.",
+
+        "promo-bold1":
+            "Take the first step for yourself.",
+
+        "promo-bold2":
+            "Book your session now.",
+
+        "promo-slogan":
+            "Every step towards recovery is a life.",
+
+
+        /* =====================================================
+           SERVICES
+        ====================================================== */
 
         "section-title":
             "Certified Counseling & Therapy Services",
@@ -263,6 +377,11 @@ const translations = {
         "service-4-desc":
             "Customized programs to boost self-esteem, overcome burnout, and breathing/relaxation exercises to control intense emotions.",
 
+
+        /* =====================================================
+           VALUES
+        ====================================================== */
+
         "values-title":
             "Our Core Values",
 
@@ -284,26 +403,36 @@ const translations = {
         "v3-d":
             "Every person is unique; your consultation plan is tailored to your own pace and circumstances for the best response.",
 
+
+        /* =====================================================
+           WORKFLOW
+        ====================================================== */
+
         "workflow-title":
             "Your Healing Journey",
 
         "wf-1-t":
-            "First Session — 200 EGP",
+            "First Session",
 
         "wf-1-d":
-            "The first session costs 200 EGP for assessment, understanding the case, and identifying the main needs.",
+            "We begin with an assessment to understand your situation and identify your main needs.",
 
         "wf-2-t":
             "Custom Plan Building",
 
         "wf-2-d":
-            "After assessment and diagnosis, the appropriate treatment plan and pricing for subsequent sessions are determined.",
+            "After assessment and understanding your situation, the appropriate plan is determined according to your needs.",
 
         "wf-3-t":
             "Sustainable Recovery",
 
         "wf-3-d":
             "Developing behavioral skills to face future crises and ensuring lasting mental resilience.",
+
+
+        /* =====================================================
+           FAQ
+        ====================================================== */
 
         "faq-title":
             "Frequently Asked Questions",
@@ -315,10 +444,10 @@ const translations = {
             "Yes, confidentiality and reliability are the core pillars of our clinic. All data and discussions are protected under medical professional secrecy and are never shared with any third party.",
 
         "q2":
-            "How much does the first session cost?",
+            "How is the appropriate session plan determined?",
 
         "a2":
-            "The first session costs 200 EGP. After assessment and diagnosis, the price of subsequent sessions is determined according to the nature of the case and the appropriate treatment plan.",
+            "After assessing and understanding your situation, the appropriate plan is determined according to your needs and circumstances.",
 
         "q3":
             "How long is the consultation session?",
@@ -356,6 +485,11 @@ const translations = {
         "a8":
             "Yes, we arrange urgent slots for critical cases going through severe psychological crises. You can notify our support team via WhatsApp to coordinate a fast emergency appointment.",
 
+
+        /* =====================================================
+           CREDENTIALS
+        ====================================================== */
+
         "cred-1":
             "Professional Master's & PhD in Certified Psycho-Family Therapy",
 
@@ -364,6 +498,11 @@ const translations = {
 
         "cred-3":
             "Advanced Training Program in Behavioral Guidance, Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), and Clinical Psychology from Stanford University",
+
+
+        /* =====================================================
+           SHARE
+        ====================================================== */
 
         "share-title":
             "Share The Website",
@@ -386,6 +525,11 @@ const translations = {
         "share-qr-desc":
             "Others can point their mobile camera at this code to open the site instantly",
 
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
         "footer-copy":
             "© 2026 Rouh Lil Rouh with Dr. Mai Mahmoud. All rights reserved.",
 
@@ -396,7 +540,7 @@ const translations = {
 
 
 /* =========================================================
-   2. GLOBAL STATE
+   GLOBAL STATE
    ========================================================= */
 
 let currentLang = "ar";
@@ -405,21 +549,193 @@ let qrLoading = false;
 
 
 /* =========================================================
-   3. LANGUAGE
+   LANGUAGE
    ========================================================= */
 
 function toggleLanguage() {
     currentLang = currentLang === "ar" ? "en" : "ar";
-
     applyLanguage();
+}
+
+
+/* =========================================================
+   PROMOTION CARD TRANSLATION
+   ========================================================= */
+
+function translatePromotionCard() {
+    const promoCard = document.querySelector(".promo-card");
+
+    if (!promoCard) {
+        return;
+    }
+
+    const t = translations[currentLang];
+
+    if (!t) {
+        return;
+    }
+
+    const title = promoCard.querySelector("h3");
+
+    const tag = promoCard.querySelector("div > span");
+
+    const paragraphs = promoCard.querySelectorAll(
+        ".text-muted p"
+    );
+
+    const slogan = promoCard.querySelector("h4");
+
+    const strongElements = promoCard.querySelectorAll(
+        ".text-muted strong"
+    );
+
+    if (title) {
+        title.textContent = t["promo-title"];
+    }
+
+    if (tag) {
+        tag.textContent = t["promo-tag"];
+    }
+
+    if (paragraphs.length >= 1) {
+        const firstParagraph = paragraphs[0];
+
+        const em = firstParagraph.querySelector("em");
+
+        firstParagraph.innerHTML = "";
+
+        const line1 = document.createElement("span");
+        line1.textContent = t["promo-p1a"];
+
+        const br = document.createElement("br");
+
+        const line2 = document.createElement("span");
+
+        if (em) {
+            const text = t["promo-p1b"];
+
+            if (currentLang === "ar") {
+                const parts = text.split('"أنا كويس"');
+
+                line2.textContent = parts[0];
+
+                const newEm = document.createElement("em");
+                newEm.textContent = '"أنا كويس"';
+
+                line2.appendChild(newEm);
+
+                if (parts[1]) {
+                    line2.appendChild(
+                        document.createTextNode(parts[1])
+                    );
+                }
+            } else {
+                const parts = text.split('"I\'m fine"');
+
+                line2.textContent = parts[0];
+
+                const newEm = document.createElement("em");
+                newEm.textContent = '"I\'m fine"';
+
+                line2.appendChild(newEm);
+
+                if (parts[1]) {
+                    line2.appendChild(
+                        document.createTextNode(parts[1])
+                    );
+                }
+            }
+        } else {
+            line2.textContent = t["promo-p1b"];
+        }
+
+        firstParagraph.appendChild(line1);
+        firstParagraph.appendChild(br);
+        firstParagraph.appendChild(line2);
+    }
+
+
+    if (paragraphs.length >= 2) {
+        const secondParagraph = paragraphs[1];
+
+        secondParagraph.innerHTML = "";
+
+        const line1 = document.createElement("span");
+        line1.textContent = t["promo-p2a"];
+
+        const br = document.createElement("br");
+
+        const line2 = document.createElement("span");
+        line2.textContent = t["promo-p2b"];
+
+        secondParagraph.appendChild(line1);
+        secondParagraph.appendChild(br);
+        secondParagraph.appendChild(line2);
+    }
+
+
+    if (paragraphs.length >= 3) {
+        const thirdParagraph = paragraphs[2];
+
+        thirdParagraph.innerHTML = "";
+
+        const prefix = document.createElement("span");
+        prefix.textContent = `${t["promo-with"]} `;
+
+        const doctor = document.createElement("strong");
+        doctor.className = "text-white";
+        doctor.textContent = t["promo-doctor"];
+
+        const comma = document.createTextNode(
+            `${t["promo-comma"]} `
+        );
+
+        const description = document.createTextNode(
+            t["promo-p3"]
+        );
+
+        thirdParagraph.appendChild(prefix);
+        thirdParagraph.appendChild(doctor);
+        thirdParagraph.appendChild(comma);
+        thirdParagraph.appendChild(description);
+    }
+
+
+    if (paragraphs.length >= 4) {
+        const fourthParagraph = paragraphs[3];
+
+        fourthParagraph.innerHTML = "";
+
+        const firstStrong = document.createElement("strong");
+        firstStrong.className = "text-white";
+        firstStrong.textContent = t["promo-bold1"];
+
+        const br = document.createElement("br");
+
+        const secondStrong = document.createElement("strong");
+        secondStrong.className = "text-white";
+        secondStrong.textContent = t["promo-bold2"];
+
+        fourthParagraph.appendChild(firstStrong);
+        fourthParagraph.appendChild(br);
+        fourthParagraph.appendChild(secondStrong);
+    }
+
+
+    if (slogan) {
+        slogan.textContent = t["promo-slogan"];
+    }
 }
 
 
 function applyLanguage() {
     const html = document.documentElement;
     const langButton = document.getElementById("lang-btn-text");
+    const currentTranslations = translations[currentLang];
 
-    if (!html) return;
+    if (!html || !currentTranslations) {
+        return;
+    }
 
     html.dir = currentLang === "ar" ? "rtl" : "ltr";
     html.lang = currentLang;
@@ -429,12 +745,8 @@ function applyLanguage() {
             currentLang === "ar" ? "English" : "العربية";
     }
 
-    const currentTranslations = translations[currentLang];
-
-    if (!currentTranslations) return;
-
     document.querySelectorAll("[data-i18n]").forEach((element) => {
-        const key = element.getAttribute("data-i18n");
+        const key = element.dataset.i18n;
 
         if (!key || !(key in currentTranslations)) {
             return;
@@ -442,94 +754,101 @@ function applyLanguage() {
 
         const value = currentTranslations[key];
 
-        if (key === "hero-title") {
-            element.innerHTML = value;
-            return;
-        }
-
         if (element.tagName === "TITLE") {
             document.title = value;
-            return;
+        } else if (key === "hero-title") {
+            element.innerHTML = value;
+        } else {
+            element.textContent = value;
         }
-
-        element.textContent = value;
     });
+
+    /* Translate promotion card separately */
+    translatePromotionCard();
 }
 
 
 /* =========================================================
-   4. THEME
+   THEME
    ========================================================= */
 
 function toggleTheme() {
     const html = document.documentElement;
     const body = document.body;
 
-    if (!html || !body) return;
+    if (!html || !body) {
+        return;
+    }
 
     const isLight = html.classList.contains("light");
 
     html.classList.toggle("light", !isLight);
     html.classList.toggle("dark", isLight);
-
     body.classList.toggle("light-theme", !isLight);
 }
 
 
 /* =========================================================
-   5. TAB SWITCHING
+   TAB SWITCHING
    ========================================================= */
 
 function switchTab(tabId) {
     const tabHome = document.getElementById("tab-home");
     const tabShare = document.getElementById("tab-share");
-
     const btnHome = document.getElementById("btn-home");
     const btnShare = document.getElementById("btn-share");
 
-    if (!tabHome || !tabShare) return;
+    if (!tabHome || !tabShare) {
+        return;
+    }
 
     const isHome = tabId === "home";
 
     tabHome.classList.toggle("hidden", !isHome);
     tabShare.classList.toggle("hidden", isHome);
 
-    if (btnHome && btnShare) {
-        btnHome.className = isHome
-            ? "px-4 py-2.5 rounded-xl transition cursor-pointer bg-teal-600 text-white font-semibold"
-            : "px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 tab-share-btn hover:bg-slate-800/60";
-
-        btnShare.className = !isHome
-            ? "px-4 py-2.5 rounded-xl transition cursor-pointer bg-teal-600 text-white font-semibold"
-            : "px-4 py-2.5 rounded-xl transition cursor-pointer text-slate-300 tab-share-btn hover:bg-slate-800/60";
+    if (btnHome) {
+        btnHome.classList.toggle("bg-teal-600", isHome);
+        btnHome.classList.toggle("text-white", isHome);
+        btnHome.classList.toggle("font-semibold", isHome);
+        btnHome.classList.toggle("text-slate-300", !isHome);
+        btnHome.classList.toggle("tab-share-btn", !isHome);
+        btnHome.classList.toggle(
+            "hover:bg-slate-800/60",
+            !isHome
+        );
     }
 
-    /*
-     * استخدام auto بدل smooth.
-     * ده يمنع التهنيج أو الحركة البطيئة عند تغيير التبويب.
-     */
+    if (btnShare) {
+        btnShare.classList.toggle("bg-teal-600", !isHome);
+        btnShare.classList.toggle("text-white", !isHome);
+        btnShare.classList.toggle("font-semibold", !isHome);
+        btnShare.classList.toggle("text-slate-300", isHome);
+        btnShare.classList.toggle("tab-share-btn", isHome);
+        btnShare.classList.toggle(
+            "hover:bg-slate-800/60",
+            isHome
+        );
+    }
+
     window.scrollTo({
         top: 0,
-        behavior: "auto"
+        behavior: "instant"
     });
 
     if (!isHome) {
-        requestAnimationFrame(() => {
-            loadQRCode();
-        });
+        requestAnimationFrame(loadQRCode);
     }
 }
 
 
 /* =========================================================
-   6. WHATSAPP
+   WHATSAPP
    ========================================================= */
 
 function redirectToWhatsApp() {
-    const whatsappUrl = "https://wa.me/201274350130";
-
     window.open(
-        whatsappUrl,
+        "https://wa.me/201274350130",
         "_blank",
         "noopener,noreferrer"
     );
@@ -537,81 +856,73 @@ function redirectToWhatsApp() {
 
 
 /* =========================================================
-   7. FAQ
+   FAQ
    ========================================================= */
 
 function toggleFaq(id) {
     const answer = document.getElementById(`faq-ans-${id}`);
     const icon = document.getElementById(`faq-icon-${id}`);
 
-    if (!answer || !icon) return;
+    if (!answer || !icon) {
+        return;
+    }
 
-    const isHidden = answer.classList.contains("hidden");
+    const isOpen = !answer.classList.contains("hidden");
 
-    answer.classList.toggle("hidden", !isHidden);
+    answer.classList.toggle("hidden", isOpen);
 
-    icon.style.transform = isHidden
-        ? "rotate(180deg)"
-        : "rotate(0deg)";
+    icon.style.transform = isOpen
+        ? "rotate(0deg)"
+        : "rotate(180deg)";
 }
 
 
 /* =========================================================
-   8. COPY WEBSITE LINK
+   COPY WEBSITE LINK
    ========================================================= */
 
 async function copyLink() {
     const statusText = document.getElementById("copyStatus");
 
-    if (!statusText) return;
+    if (!statusText) {
+        return;
+    }
 
     const originalText =
         translations[currentLang]?.["share-btn-copy"] ||
-        (currentLang === "ar" ? "نسخ الرابط" : "Copy Link");
-
-    const successText =
-        currentLang === "ar"
-            ? "تم النسخ!"
-            : "Copied!";
-
-    const failedText =
-        currentLang === "ar"
-            ? "تعذر النسخ"
-            : "Copy failed";
+        (currentLang === "ar"
+            ? "نسخ الرابط"
+            : "Copy Link");
 
     try {
         const url = window.location.href;
 
-        /*
-         * الطريقة الحديثة
-         */
         if (
             navigator.clipboard &&
             typeof navigator.clipboard.writeText === "function"
         ) {
             await navigator.clipboard.writeText(url);
         } else {
-            /*
-             * Fallback للمتصفحات التي لا تدعم Clipboard API
-             */
             fallbackCopyText(url);
         }
 
-        statusText.textContent = successText;
-
-        window.setTimeout(() => {
-            statusText.textContent = originalText;
-        }, 2000);
+        statusText.textContent =
+            currentLang === "ar"
+                ? "تم النسخ!"
+                : "Copied!";
 
     } catch (error) {
         console.error("Copy failed:", error);
 
-        statusText.textContent = failedText;
-
-        window.setTimeout(() => {
-            statusText.textContent = originalText;
-        }, 2000);
+        statusText.textContent =
+            currentLang === "ar"
+                ? "تعذر النسخ"
+                : "Copy failed";
     }
+
+    window.setTimeout(() => {
+        statusText.textContent = originalText;
+    }, 2000);
 }
 
 
@@ -619,7 +930,8 @@ function fallbackCopyText(text) {
     const textarea = document.createElement("textarea");
 
     textarea.value = text;
-    textarea.setAttribute("readonly", "");
+    textarea.readOnly = true;
+
     textarea.style.position = "fixed";
     textarea.style.opacity = "0";
     textarea.style.pointerEvents = "none";
@@ -627,7 +939,10 @@ function fallbackCopyText(text) {
     document.body.appendChild(textarea);
 
     textarea.select();
-    textarea.setSelectionRange(0, textarea.value.length);
+    textarea.setSelectionRange(
+        0,
+        textarea.value.length
+    );
 
     const successful = document.execCommand("copy");
 
@@ -640,7 +955,7 @@ function fallbackCopyText(text) {
 
 
 /* =========================================================
-   9. QR CODE
+   QR CODE
    ========================================================= */
 
 function loadQRCode() {
@@ -654,9 +969,6 @@ function loadQRCode() {
         return;
     }
 
-    /*
-     * لو المكتبة موجودة بالفعل نستخدمها مباشرة.
-     */
     if (typeof QRCode !== "undefined") {
         generateQRCode();
         return;
@@ -678,7 +990,9 @@ function loadQRCode() {
 
     script.onerror = () => {
         qrLoading = false;
-        console.error("QR Code library failed to load.");
+        console.error(
+            "QR Code library failed to load."
+        );
     };
 
     document.head.appendChild(script);
@@ -686,19 +1000,19 @@ function loadQRCode() {
 
 
 function generateQRCode() {
-    if (qrGenerated) return;
-
     const qrElement = document.getElementById("qrcode");
 
-    if (!qrElement) return;
-
-    if (typeof QRCode === "undefined") {
+    if (
+        qrGenerated ||
+        !qrElement ||
+        typeof QRCode === "undefined"
+    ) {
         return;
     }
 
-    qrElement.innerHTML = "";
-
     try {
+        qrElement.innerHTML = "";
+
         new QRCode(qrElement, {
             text: window.location.href,
             width: 128,
@@ -711,96 +1025,77 @@ function generateQRCode() {
         qrGenerated = true;
 
     } catch (error) {
-        console.error("QR Code generation failed:", error);
+        console.error(
+            "QR Code generation failed:",
+            error
+        );
     }
 }
 
 
 /* =========================================================
-   10. SCROLL REVEAL
+   SCROLL REVEAL
    ========================================================= */
 
 function initializeRevealAnimations() {
-    const revealElements =
+    const elements =
         document.querySelectorAll(".reveal");
 
-    if (!revealElements.length) {
+    if (!elements.length) {
         return;
     }
 
-    /*
-     * لو المستخدم مفعّل تقليل الحركة:
-     * نظهر كل العناصر فوراً بدون Animation.
-     */
     const reducedMotion =
-        window.matchMedia &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.matchMedia?.(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
 
-    if (reducedMotion) {
-        revealElements.forEach((element) => {
+    if (
+        reducedMotion ||
+        !("IntersectionObserver" in window)
+    ) {
+        elements.forEach((element) => {
             element.classList.add("active");
         });
 
         return;
     }
 
-    /*
-     * rootMargin أكبر شوية عشان العناصر تبدأ
-     * تظهر قبل ما تدخل الشاشة بالكامل.
-     */
-    const observerOptions = {
-        root: null,
-        rootMargin: "0px 0px 120px 0px",
-        threshold: 0.05
-    };
+    const observer = new IntersectionObserver(
+        (entries, observerInstance) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
 
-    if (!("IntersectionObserver" in window)) {
-        revealElements.forEach((element) => {
-            element.classList.add("active");
-        });
+                entry.target.classList.add("active");
 
-        return;
-    }
+                observerInstance.unobserve(
+                    entry.target
+                );
+            });
+        },
+        {
+            rootMargin: "0px 0px 120px 0px",
+            threshold: 0.05
+        }
+    );
 
-    const revealObserver =
-        new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    entry.target.classList.add("active");
-
-                    observer.unobserve(entry.target);
-                });
-            },
-            observerOptions
-        );
-
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
+    elements.forEach((element) => {
+        observer.observe(element);
     });
 }
 
 
 /* =========================================================
-   11. INITIALIZATION
+   INITIALIZATION
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-    /*
-     * تطبيق اللغة الحالية.
-     */
-    applyLanguage();
-
-    /*
-     * تشغيل Reveal.
-     */
-    initializeRevealAnimations();
-
-    /*
-     * التأكد أن الصفحة تبدأ على Home.
-     */
-    switchTab("home");
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        applyLanguage();
+        initializeRevealAnimations();
+        switchTab("home");
+    }
+);
